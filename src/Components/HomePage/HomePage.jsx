@@ -4,8 +4,10 @@ import "./HomePage.css";
 import carouselImage1 from "../../assets/images/bg_1.jpg";
 import carouselImage2 from "../../assets/images/bg_2.jpg";
 import carouselImage3 from "../../assets/images/bg_3.jpg";
+import Footer from "../Footer/Footer";
 const HomePage = () => {
   return (
+    <>
     <div>
       <Carousel>
         <Carousel.Item interval={500}>
@@ -47,6 +49,8 @@ const HomePage = () => {
         </Carousel.Item>
       </Carousel>
     </div>
+    <Footer/>
+    </>
   );
 };
 

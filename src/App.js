@@ -10,7 +10,7 @@ const App = () => {
     <BrowserRouter>
       <PrimarySearchAppBar />
       <MainRoutes />
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };
