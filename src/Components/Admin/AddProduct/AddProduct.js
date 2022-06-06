@@ -61,7 +61,7 @@ const AddProduct = () => {
             variant="outlined"
             value={inputValues.name}
             onChange={(e) => handleChange(e)}
-            name="title"
+            name="name"
             className="inp1 m-1"
           />
         </div>
