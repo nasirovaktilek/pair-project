@@ -2,13 +2,16 @@ import React from "react";
 import image from "../../assets/images/image_1.jpg";
 import image1 from "../../assets/images/image_2.jpg";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
+import PhoneEnabledSharpIcon from "@mui/icons-material/PhoneEnabledSharp";
+import MailSharpIcon from "@mui/icons-material/MailSharp";
 
 const Footer = () => {
   return (
     <>
       <footer
         className="ftco-footer ftco-section img"
-        style={{ marginTop: "30px" }}
+        style={{ backgroundColor: "#1e1c1c" }}
       >
         <div className="overlay"></div>
         <div className="container">
@@ -22,6 +25,7 @@ const Footer = () => {
                     fontFamily: "Josefin Sans",
                     fontSize: " 16px",
                     marginBottom: "30px",
+                    marginTop: "30px",
                   }}
                 >
                   ABOUT US
@@ -65,6 +69,7 @@ const Footer = () => {
                     fontFamily: "Josefin Sans",
                     fontSize: " 16px",
                     marginBottom: "30px",
+                    marginTop: "30px",
                   }}
                 >
                   RESENT BLOG
@@ -178,6 +183,7 @@ const Footer = () => {
                     fontFamily: "Josefin Sans",
                     fontSize: " 16px",
                     marginBottom: "30px",
+                    marginTop: "30px",
                   }}
                 >
                   SERVICES
@@ -216,13 +222,14 @@ const Footer = () => {
                     fontSize: " 16px",
                     marginBottom: "30px",
                     marginLeft: "25px",
+                    marginTop: "30px",
                   }}
                 >
                   HAVE A QUESTIONS?
                 </h2>
                 <div className="block-23 mb-3">
                   <ul>
-                    <li>
+                    <li style={{ marginBottom: "20px" }}>
                       <span className="icon icon-map-marker"></span>
                       <span
                         className="text"
@@ -230,23 +237,28 @@ const Footer = () => {
                           color: "#FFFFFFB3",
                           fontFamily: "Poppins",
                           fontSize: " 16px",
-                          lineHeight: "35px",
                         }}
                       >
+                        <LocationOnSharpIcon />
                         203 Fake St. Mountain View, San Francisco, California,
                         USA
                       </span>
                     </li>
-                    <li>
+                    <li style={{ marginBottom: "20px" }}>
                       <a href="#">
                         <span className="icon icon-phone"></span>
-                        <span className="text">+2 392 3929 210</span>
+                        <span className="text">
+                          <PhoneEnabledSharpIcon />
+                          +2 392 3929 210
+                        </span>
                       </a>
                     </li>
-                    <li>
+                    <li style={{ marginBottom: "20px" }}>
                       <a href="#">
                         <span className="icon icon-envelope"></span>
-                        <span className="text">info@yourdomain.com</span>
+                        <span className="text">
+                          <MailSharpIcon /> info@yourdomain.com
+                        </span>
                       </a>
                     </li>
                   </ul>
