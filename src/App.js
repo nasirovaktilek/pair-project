@@ -1,10 +1,11 @@
 import React from "react";
-
+import { BrowserRouter } from "react-router-dom";
+import MainRoutes from "./MainRoutes";
 const App = () => {
   return (
-    <div>
-      <h1>Welcome to our Coffee house</h1>
-    </div>
+    <BrowserRouter>
+      <MainRoutes />
+    </BrowserRouter>
   );
 };
 
