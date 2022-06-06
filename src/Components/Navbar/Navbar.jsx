@@ -169,11 +169,33 @@ export default function PrimarySearchAppBar() {
             <MenuIcon />
           </IconButton>
 
-          <a className="navbar-brand" href="index.html">
-            Coffee
-            <br />
-            <small>Blend</small>
-          </a>
+          <Box>
+            <a
+              style={{
+                color: "white",
+                fontFamily: "Josefin Sans",
+                fontSize: "22px",
+                marginRight: "5px",
+                marginTop: "5px",
+              }}
+              className="navbar-brand"
+              href="index.html"
+            >
+              COFFEE
+            </a>
+          </Box>
+
+          <Box>
+            <small
+              sx={{
+                fontFamily: "Josefin Sans",
+                fontSize: " 12px",
+              }}
+            >
+              B L E N D
+            </small>
+          </Box>
+
           {/* <Typography
             variant="h6"
             noWrap
@@ -182,15 +204,7 @@ export default function PrimarySearchAppBar() {
           >
             MUI
           </Typography> */}
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
@@ -198,7 +212,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={1} color="error">
                 <AddShoppingCartIcon />
               </Badge>
             </IconButton>
@@ -226,6 +240,16 @@ export default function PrimarySearchAppBar() {
               <MoreIcon />
             </IconButton>
           </Box>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              sx={{ width: "130px" }}
+              placeholder="Search…"
+              inputProps={{ "aria-label": "search" }}
+            />
+          </Search>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
