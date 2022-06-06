@@ -1,19 +1,33 @@
 import { Button, TextField } from "@mui/material";
-import React, { useState } from "react";
-import { ToastContainer } from "react-bootstrap";
+import React, { useContext, useState } from "react";
+import { productContext } from "../../../Context/ProductContext";
 import "./AddProduct.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initObj = {
   name: "",
   type: "",
   description: "",
-  price: 0,
+  price: "",
   image: "",
 };
 
 const AddProduct = () => {
-  // const { addProduct } = useContext(productContext);
+  const { addProduct } = useContext(productContext);
   const [inputValues, setInputValues] = useState(initObj);
+
+  const alertToastify = () => {
+    toast.error("Заполните все поля!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+  };
 
   const handleChange = (e) => {
     let obj = {
@@ -21,40 +35,34 @@ const AddProduct = () => {
       [e.target.name]: e.target.value,
     };
     setInputValues(obj);
-    console.log(obj);
+    // console.log(obj);
   };
 
   const handleSave = (e) => {
     if (
-      inputValues.title.trim() === "" ||
+      inputValues.name.trim() === "" ||
       inputValues.type.trim() === "" ||
       inputValues.description.trim() === "" ||
       inputValues.price.toString().trim() === "" ||
-      inputValues.img1.trim() === "" ||
-      inputValues.img2.trim() === "" ||
-      inputValues.img3.trim() === ""
+      inputValues.image.trim() === ""
     ) {
-      //   alertToastify();
+      alertToastify();
       return;
     }
     e.preventDefault();
-    // addProduct(inputValues);
+    addProduct(inputValues);
     clearInputs();
   };
 
   const clearInputs = () => {
     setInputValues(initObj);
   };
+
   return (
-    <form
-      //   style={{ backgroundColor: "white" }}
-      className="inp"
-      onSubmit={(e) => handleSave(e)}
-    >
+    <form className="inp" onSubmit={(e) => handleSave(e)}>
       <div className="inputs">
         <div>
           <TextField
-            // style={{ backgroundColor: "white" }}
             sx={{ width: "400px", borderRadius: "5px" }}
             id="outlined-basic"
             label="Name"
@@ -110,7 +118,7 @@ const AddProduct = () => {
             variant="outlined"
             value={inputValues.image}
             onChange={(e) => handleChange(e)}
-            name="img1"
+            name="image"
             className="inp5 m-1"
           />
         </div>
