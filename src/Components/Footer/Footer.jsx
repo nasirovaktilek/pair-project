@@ -275,7 +275,7 @@ const Footer = () => {
                   fontSize: " 16px",
                 }}
               >
-                MADE WITH <FavoriteIcon /> FROM KATYA & AKTILEK
+                MADE WITH <FavoriteIcon />  BY KATYA ❤️ AKTILEK
               </p>
             </div>
           </div>
