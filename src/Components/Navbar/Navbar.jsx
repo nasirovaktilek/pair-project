@@ -16,6 +16,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 // import MoreIcon from "@mui/icons-material/MoreVert";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -60,6 +61,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const navigate = useNavigate();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -80,6 +82,13 @@ export default function PrimarySearchAppBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const navigateToAdd = () => {
+    navigate("/add");
+  };
+  const navigateToLoginPage = () => {
+    navigate("/login")
+  }
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -204,7 +213,9 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge color="error">
+              <NavLink to="/add">
                 <AddCircleOutlineSharpIcon />
+            </NavLink>
               </Badge>
             </IconButton>
 
@@ -214,7 +225,8 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge badgeContent={1} color="error">
-                <AddShoppingCartIcon />
+
+                <AddShoppingCartIcon onClick={()=>navigateToAdd()}/>
               </Badge>
             </IconButton>
 
@@ -224,7 +236,7 @@ export default function PrimarySearchAppBar() {
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
+              onClick={()=>navigateToLoginPage()}
               color="inherit"
             >
               <AccountCircle />
