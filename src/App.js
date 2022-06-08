@@ -5,15 +5,18 @@ import MainRoutes from "./MainRoutes";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ProductContextProvider from "./Context/ProductContext";
 import AuthContextProvider from "./Context/AuthContext";
+import CartContextProvider from "./Context/CartContext";
 
 const App = () => {
   return (
     <BrowserRouter>
       <AuthContextProvider>
-        <ProductContextProvider>
-          <PrimarySearchAppBar />
-          <MainRoutes />
-        </ProductContextProvider>
+        <CartContextProvider>
+          <ProductContextProvider>
+            <PrimarySearchAppBar />
+            <MainRoutes />
+          </ProductContextProvider>
+        </CartContextProvider>
       </AuthContextProvider>
     </BrowserRouter>
   );

@@ -10,13 +10,13 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Products.css";
 import ReactPaginate from "react-paginate";
 import { productContext } from "../../Context/ProductContext";
-// import { Filter } from "@mui/icons-material";
 import Filter from "../Filter/Filter";
+import { cartContext } from "../../Context/CartContext";
 
 const Products = () => {
   const { getProducts, products, deleteProduct } = useContext(productContext);
 
-  //   const { addProductToCart } = useContext(cartContext);
+  const { addProductToCart } = useContext(cartContext);
 
   const [searchParams, setSearchParams] = useSearchParams();
   // Хук useSearchParams предназначен для чтения и изменения строки запроса в URL для текущего маршрута. По аналогии с хуком useState возвращает значение и функцию для изменения этого значения.
@@ -152,9 +152,7 @@ const Products = () => {
                       </Button>
                     </NavLink>
 
-                    <Button
-                    //   onClick={(e) => addProductToCart(item)}
-                    >
+                    <Button onClick={(e) => addProductToCart(item)}>
                       <AddShoppingCartIcon />
                     </Button>
                   </CardActions>
