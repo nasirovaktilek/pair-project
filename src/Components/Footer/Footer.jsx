@@ -60,7 +60,10 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6 mb-5 mb-md-5">
+            <div
+              style={{ height: "100px" }}
+              className="col-lg-4 col-md-6 mb-5 mb-md-5"
+            >
               <div className="ftco-footer-widget mb-4">
                 <h2
                   className="ftco-heading-2"
@@ -267,7 +270,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-12 text-center">
+            <div style={{ heigth: "50px" }} className="col-md-12 text-center">
               <p
                 style={{
                   color: "#FFFFFFB3",
@@ -275,7 +278,7 @@ const Footer = () => {
                   fontSize: " 16px",
                 }}
               >
-                MADE WITH <FavoriteIcon />  BY KATYA ❤️ AKTILEK
+                MADE WITH <FavoriteIcon /> BY KATYA ❤️ AKTILEK
               </p>
             </div>
           </div>

@@ -89,8 +89,8 @@ export default function PrimarySearchAppBar() {
     navigate("/add");
   };
   const navigateToLoginPage = () => {
-    navigate("/login")
-  }
+    navigate("/login");
+  };
 
   const navigateToList = () => {
     navigate("/list")
@@ -222,7 +222,13 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge color="error">
+<<<<<<< HEAD
               <AddCircleOutlineSharpIcon onClick={()=>navigateToAdd()}/>
+=======
+                <NavLink to="/add">
+                  <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
+                </NavLink>
+>>>>>>> 4faf8803252c0251637a321ba7a1bf20bb05f3ab
               </Badge>
             </IconButton>
             <IconButton
@@ -231,7 +237,11 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge badgeContent={1} color="error">
+<<<<<<< HEAD
                 <AddShoppingCartIcon/>
+=======
+                <AddShoppingCartIcon />
+>>>>>>> 4faf8803252c0251637a321ba7a1bf20bb05f3ab
               </Badge>
             </IconButton>
 
@@ -241,7 +251,7 @@ export default function PrimarySearchAppBar() {
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
-              onClick={()=>navigateToLoginPage()}
+              onClick={() => navigateToLoginPage()}
               color="inherit"
             >
               <AccountCircle />
