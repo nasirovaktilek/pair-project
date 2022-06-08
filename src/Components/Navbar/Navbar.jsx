@@ -18,7 +18,7 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "bootstrap";
-import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
+import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -93,8 +93,8 @@ export default function PrimarySearchAppBar() {
   };
 
   const navigateToList = () => {
-    navigate("/list")
-  }
+    navigate("/list");
+  };
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -214,7 +214,10 @@ export default function PrimarySearchAppBar() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton>
-              <RestaurantMenuOutlinedIcon sx={{color: "white"}} onClick={()=> navigateToList()}/>
+              <RestaurantMenuOutlinedIcon
+                sx={{ color: "white" }}
+                onClick={() => navigateToList()}
+              />
             </IconButton>
             <IconButton
               size="large"
@@ -222,13 +225,9 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge color="error">
-<<<<<<< HEAD
-              <AddCircleOutlineSharpIcon onClick={()=>navigateToAdd()}/>
-=======
                 <NavLink to="/add">
                   <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
                 </NavLink>
->>>>>>> 4faf8803252c0251637a321ba7a1bf20bb05f3ab
               </Badge>
             </IconButton>
             <IconButton
@@ -237,11 +236,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge badgeContent={1} color="error">
-<<<<<<< HEAD
-                <AddShoppingCartIcon/>
-=======
                 <AddShoppingCartIcon />
->>>>>>> 4faf8803252c0251637a321ba7a1bf20bb05f3ab
               </Badge>
             </IconButton>
 
