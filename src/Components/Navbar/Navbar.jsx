@@ -14,11 +14,15 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 // import MoreIcon from "@mui/icons-material/MoreVert";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "bootstrap";
-import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
+import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
+<<<<<<< HEAD
+=======
+import { cartContext } from "../../Context/CartContext";
+>>>>>>> Katya
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,6 +65,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar() {
+  const { cartLength } = React.useContext(cartContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
@@ -93,8 +98,15 @@ export default function PrimarySearchAppBar() {
   };
 
   const navigateToList = () => {
-    navigate("/list")
-  }
+    navigate("/list");
+  };
+<<<<<<< HEAD
+=======
+
+  const addProductToCart = () => {
+    navigate("/cart");
+  };
+>>>>>>> Katya
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -214,7 +226,10 @@ export default function PrimarySearchAppBar() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton>
-              <RestaurantMenuOutlinedIcon sx={{color: "white"}} onClick={()=> navigateToList()}/>
+              <RestaurantMenuOutlinedIcon
+                sx={{ color: "white" }}
+                onClick={() => navigateToList()}
+              />
             </IconButton>
             <IconButton
               size="large"
@@ -222,7 +237,13 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge color="error">
+<<<<<<< HEAD
+                <NavLink to="/add">
                   <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
+                </NavLink>
+=======
+                <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
+>>>>>>> Katya
               </Badge>
             </IconButton>
             <IconButton
@@ -230,8 +251,13 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
+<<<<<<< HEAD
               <Badge badgeContent={1} color="error">
                 <AddShoppingCartIcon />
+=======
+              <Badge badgeContent={cartLength} color="error">
+                <ShoppingCartIcon onClick={() => addProductToCart()} />
+>>>>>>> Katya
               </Badge>
             </IconButton>
 
