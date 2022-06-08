@@ -22,11 +22,11 @@ const Cart = () => {
       <table>
         <thead>
           <tr style={{ fontSize: "20px", marginBottom: "50px" }}>
-            <th>Фото</th>
+            {/* <th>Фото</th>
             <th>Название</th>
             <th>Цена</th>
             <th>Количество</th>
-            <th>Сумма продукта</th>
+            <th>Сумма продукта</th> */}
           </tr>
         </thead>
         <tbody>
@@ -34,33 +34,15 @@ const Cart = () => {
             ? cart.products.map((elem) => (
                 <tr key={elem.item.id}>
                   <td>
-                    <img width={200} src={elem.item.img1} alt="phone" />
+                    <img
+                      width={200}
+                      src={elem.item.image}
+                      alt={elem.item.name}
+                    />
                   </td>
-                  <td
-                  // style={{
-                  //   display: "flex",
-                  //   justifyContent: "center",
-                  //   marginTop: "40px",
-                  // }}
-                  >
-                    {elem.item.title}
-                  </td>
-                  <td
-                  // style={{
-                  //   display: "flex",
-                  //   justifyContent: "center",
-                  //   marginTop: "40px",
-                  // }}
-                  >
-                    {elem.item.price}
-                  </td>
-                  <td
-                  // style={{
-                  //   display: "flex",
-                  //   justifyContent: "center",
-                  //   marginTop: "40px",
-                  // }}
-                  >
+                  <td>{elem.item.name}</td>
+                  <td>{elem.item.price}</td>
+                  <td>
                     <input
                       type="number"
                       value={elem.count}
