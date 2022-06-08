@@ -1,12 +1,116 @@
 {
   "products": [
     {
-      "name": "weewewewewewewewewe",
-      "type": "wqwqqwqw",
-      "description": "yuiuiuiuiuiuiuiuiu",
-      "price": "23456",
-      "image": "oppopopopopo",
-      "id": 1
+      "name": "wecfaedvca",
+      "type": "evfcafevaed",
+      "description": "ecvaecfva",
+      "price": "4.00",
+      "image": "https://i.mycdn.me/i?r=AyH4iRPQ2q0otWIFepML2LxRq6LD1aOKOAJIoquh5TWBmQ&dpr=2",
+      "id": 8
+    },
+    {
+      "name": "Whopper Jr. Croissant",
+      "type": "Burger",
+      "description": "410 Cal",
+      "price": "5.7",
+      "image": "https://i.mycdn.me/i?r=AyH4iRPQ2q0otWIFepML2LxRpnWfTZxe6yvrzQkDt1lWHw&dpr=2",
+      "id": 9
+    },
+    {
+      "name": "Build Your Own Sandwich - Whopper (Plain)",
+      "type": "Burger",
+      "description": "350 Cal",
+      "price": "6.5",
+      "image": "https://i.mycdn.me/i?r=AyH4iRPQ2q0otWIFepML2LxRq6LD1aOKOAJIoquh5TWBmQ&dpr=2",
+      "id": 10
+    },
+    {
+      "name": "Whopper",
+      "type": "Burger",
+      "description": "669 Cal",
+      "price": "7.00",
+      "image": "https://i.mycdn.me/i?r=AyH4iRPQ2q0otWIFepML2LxRq6LD1aOKOAJIoquh5TWBmQ&dpr=2",
+      "id": 11
+    },
+    {
+      "name": "Medium BK Café Decaf",
+      "type": "Drinks",
+      "description": "Hot drinks",
+      "price": "3.00",
+      "image": "https://i.mycdn.me/i?r=AyH4iRPQ2q0otWIFepML2LxRZSJmqz-QaL3pNyU5lOI58g&dpr=2",
+      "id": 12
+    },
+    {
+      "name": "Simply® Orange Juice",
+      "type": "Drinks",
+      "description": "140 Cal",
+      "price": "3.00",
+      "image": "https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1RkA8ynLhbUE3bPVyUevfj84aaKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 13
+    },
+    {
+      "name": "Red vine",
+      "type": "Drinks",
+      "description": "Alcohol Drinks",
+      "price": "20.00",
+      "image": "https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1Rk3znm2gchuzIFTGhmEPwVUqaKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 14
+    },
+    {
+      "name": "Cream Soda",
+      "type": "Drinks",
+      "description": "Alcohol Drinks",
+      "price": "9.00",
+      "image": "https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1RkUHpUXePLboFQF94FXZCbzaaKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 15
+    },
+    {
+      "name": "Rose Bear",
+      "type": "Drinks",
+      "description": "Alcohol Drinks",
+      "price": "7.00",
+      "image": "https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1RkQJsqG6WObwp-jHKCg5iMb6aKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 16
+    },
+    {
+      "name": "Sangria",
+      "type": "Drinks",
+      "description": "Alcohol Drinks",
+      "price": "12.00",
+      "image": "https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1Rk8Kn5cMyNbdp91JDTMfi6MqaKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 17
+    },
+    {
+      "name": "Medium Hi-C Fruit Punch",
+      "type": "Drinks",
+      "description": "Non-alcohol drinks",
+      "price": "5.00",
+      "image": "...TM5SRkZCeTgDn6uOyic&dpr=2  https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1RkIV31Rgv1_OHr9lldHmAnm6aKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 18
+    },
+    {
+      "name": "Moxito",
+      "type": "Drinks",
+      "description": "Alcohol Drinks",
+      "price": "10.00",
+      "image": "https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1RkM1l-YF2M5ytVQD9K4Hfzm6aKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 19
+    },
+    {
+      "name": "Aperol Spritz",
+      "type": "Drinks",
+      "description": "Alcohol Drinks",
+      "price": "13.00",
+      "image": "https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1Rk72QLo6bWUeXTg67777YeOKaKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 20
+    },
+    {
+      "name": "Cookie Shake",
+      "type": "Drinks",
+      "description": "643 Cal",
+      "price": "14.00",
+      "image": "https://i.mycdn.me/i?r=AzEPZsRbOZEKgBhR0XGMT1RkPPlk3VLbJyao0iQxYdsZxaaKTM5SRkZCeTgDn6uOyic&dpr=2",
+      "id": 21
     }
   ]
 }

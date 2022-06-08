@@ -33,7 +33,7 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getProducts = async () => {
-    const { data } = await axios.get(`${API}${location.search}`);
+    const { data } = await axios(`${API}${location.search}`);
     dispatch({
       type: "GET_PRODUCTS",
       payload: data,

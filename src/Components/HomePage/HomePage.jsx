@@ -64,7 +64,7 @@ const HomePage = () => {
       </div>
       {/* //! Section 2 start */}
       <section
-        style={{ backgroundColor: "#1e1c1c" }}
+        // style={{ backgroundColor: "#1e1c1c" }}
         className="ftco-about d-md-flex"
       >
         <div
@@ -137,7 +137,7 @@ const HomePage = () => {
       </section>
       {/* //! Section 3 start */}
       <section
-        style={{ backgroundColor: "#C49B63" }}
+        style={{ backgroundColor: "#C49B63", height: "600px" }}
         className="ftco-section ftco-services"
       >
         <div style={{ margin: "0 20px" }} className="container">
@@ -238,10 +238,7 @@ const HomePage = () => {
       </section>
 
       {/* //! Section 4 start */}
-      <section
-        style={{ backgroundColor: "#1e1c1c", color: "#FFFFFFB3" }}
-        className="ftco-section"
-      >
+      <section style={{ color: "#FFFFFFB3" }} className="ftco-section">
         <div className="container">
           <div
             style={{ marginBottom: "100px" }}
