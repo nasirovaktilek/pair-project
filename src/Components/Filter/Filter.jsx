@@ -3,8 +3,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Filter = ({ type, setType }) => {
   return (
@@ -17,19 +16,11 @@ const Filter = ({ type, setType }) => {
         value={type}
         onChange={(e) => setType(e.target.value)}
       >
-        <FormControlLabel value="Drinks" control={<Radio />} label="Drinks" />
-        <FormControlLabel
-          value="Desserts"
-          control={<Radio />}
-          label="Desserts"
-        />
-        <FormControlLabel value="Burger" control={<Radio />} label="Burgers" />
-        <FormControlLabel
-          value="Main Dishes"
-          control={<Radio />}
-          label="Main Dishes"
-        />
-        <FormControlLabel value="All" control={<Radio />} label="All" />
+        <FormControlLabel value="Drinks" control={<Radio />} label="Drinks"/>
+        <FormControlLabel value="Desserts" control={<Radio />} label="Desserts"/>
+        <FormControlLabel value="Burger" control={<Radio />} label="Burgers"/>
+        <FormControlLabel value="Main Dishes" control={<Radio />} label="Main Dishes"/>
+        <FormControlLabel value="All" control={<Radio />} label="All"/>
       </RadioGroup>
     </FormControl>
   );

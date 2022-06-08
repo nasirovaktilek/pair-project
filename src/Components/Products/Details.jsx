@@ -13,6 +13,7 @@ import Paper from "@mui/material/Paper";
 import "swiper/css";
 import SwiperCore, { Thumbs } from "swiper";
 import { productContext } from "../../Context/ProductContext";
+import './Details.css'
 
 SwiperCore.use([Thumbs]);
 
@@ -30,27 +31,13 @@ const ProductDetails = () => {
   return (
     <section className="product__block-details">
       <Container>
-        <Grid container spacing={2}>
+       <Grid container spacing={2}>
           <Grid item xs={6}>
             <Swiper
               spaceBetween={10}
               thumbs={{ swiper: thumbsSwiper }}
               className="mySwiper2"
             >
-              <SwiperSlide>
-                <img
-                  width={400}
-                  src={productDetails.image}
-                  alt={productDetails.name}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  width={400}
-                  src={productDetails.image}
-                  alt={productDetails.name}
-                />
-              </SwiperSlide>
               <SwiperSlide>
                 <img
                   width={400}
@@ -117,7 +104,7 @@ const ProductDetails = () => {
               component="h3"
               sx={{ fontWeight: 700, letterSpacing: 2 }}
             >
-              {productDetails.title}
+              {productDetails.name}
             </Typography>
             <Typography variant="body2" gutterBottom>
               {productDetails.description}

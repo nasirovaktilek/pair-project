@@ -1,3 +1,7 @@
+body {
+  background-color: aquamarine;
+}
+
 .product__block-details {
   padding-top: 70px;
   padding-bottom: 70px;

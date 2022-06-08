@@ -12,6 +12,7 @@ import ReactPaginate from "react-paginate";
 import { productContext } from "../../Context/ProductContext";
 import Filter from "../Filter/Filter";
 
+
 const Products = () => {
   const { getProducts, products, deleteProduct } = useContext(productContext);
 
@@ -70,14 +71,13 @@ const Products = () => {
   };
 
   return (
-    <>
+    <div className="products">
       <div className="main_container">
         <div className="filter">
           <Filter type={type} setType={setType} />
         </div>
         <div className="container">
-          {products
-            ? products.slice(productVisited, sliceTwoIndex).map((item) => (
+          {products ? products.slice(productVisited, sliceTwoIndex).map((item) => (
                 <Card
                   key={item.id}
                   className="card"
@@ -173,7 +173,7 @@ const Products = () => {
         activeClassName={"paginationActive"}
         onPageChange={changePage}
       />
-    </>
+    </div>
   );
 };
 
