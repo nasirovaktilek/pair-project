@@ -8,11 +8,12 @@ import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
-import Paper from "@mui/material/Paper";
+
 import { productContext } from "../../Context/ProductContext";
 
 const ProductDetails = () => {
   let { id } = useParams();
+  const { deleteProduct } = useContext(productContext);
 
   const { getProductsDetails, productDetails } = useContext(productContext);
   console.log("effect in details");
@@ -44,7 +45,7 @@ const ProductDetails = () => {
               severity="success"
               sx={{ fontWeight: 700, mt: "20px" }}
             >
-              Скидка : 10 %
+              Discount : 10 %
             </Alert>
             <Box
               component="div"
@@ -73,7 +74,7 @@ const ProductDetails = () => {
                 component="div"
                 sx={{ fontWeight: 700, letterSpacing: 2 }}
               >
-                {productDetails.price} с.
+                {productDetails.price} $
               </Typography>
             </Box>
             <Button
@@ -83,17 +84,20 @@ const ProductDetails = () => {
               fullWidth={true}
               sx={{ mt: "20px", height: "50px" }}
             >
-              Добавить в корзину
+              Add To Cart
             </Button>
             <NavLink to={`/edit/${productDetails.id}`}>
               <Button>Edit</Button>
+              <Button onClick={() => deleteProduct(productDetails.id)}>
+                Delete
+              </Button>
             </NavLink>
             <Alert
               severity="info"
               variant="outlined"
               sx={{ fontWeight: 700, mt: "20px" }}
             >
-              Телефон: 54545454
+              Phone: 54545454
             </Alert>
           </Grid>
         </Grid>
