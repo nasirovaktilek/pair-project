@@ -34,7 +34,7 @@ const Cart = () => {
             ? cart.products.map((elem) => (
                 <tr key={elem.item.id}>
                   <td>
-                    <img width={200} src={elem.item.img1} alt="phone" />
+                    <img width={200} src={elem.item.image} alt={elem.item.name} />
                   </td>
                   <td
                   // style={{
@@ -43,7 +43,7 @@ const Cart = () => {
                   //   marginTop: "40px",
                   // }}
                   >
-                    {elem.item.title}
+                    {elem.item.name}
                   </td>
                   <td
                   // style={{
