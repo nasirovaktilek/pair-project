@@ -19,10 +19,7 @@ import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp
 import { NavLink, useNavigate } from "react-router-dom";
 import { Button } from "bootstrap";
 import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
-<<<<<<< HEAD
-=======
 import { cartContext } from "../../Context/CartContext";
->>>>>>> Katya
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -100,13 +97,10 @@ export default function PrimarySearchAppBar() {
   const navigateToList = () => {
     navigate("/list");
   };
-<<<<<<< HEAD
-=======
 
   const addProductToCart = () => {
     navigate("/cart");
   };
->>>>>>> Katya
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -237,13 +231,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge color="error">
-<<<<<<< HEAD
-                <NavLink to="/add">
-                  <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
-                </NavLink>
-=======
                 <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
->>>>>>> Katya
               </Badge>
             </IconButton>
             <IconButton
@@ -251,13 +239,8 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-<<<<<<< HEAD
-              <Badge badgeContent={1} color="error">
-                <AddShoppingCartIcon />
-=======
               <Badge badgeContent={cartLength} color="error">
                 <ShoppingCartIcon onClick={() => addProductToCart()} />
->>>>>>> Katya
               </Badge>
             </IconButton>
 
