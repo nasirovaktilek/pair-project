@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: aquamarine;
 }
 
@@ -11,9 +11,19 @@ body {
   justify-content: center;
 }
 .mySwiper1 .swiper-slide {
-  /* margin: 40px 0; */
+ 
   cursor: pointer;
 }
 .mySwiper1 .swiper-slide .swiper-slide-thumb-active {
   border-bottom: 5px solid #1b5e20;
+} */
+
+.main-div {
+  display: flex;
+  margin: 10% 10%;
+}
+
+#imageCart {
+  width: 600px;
+  border-radius: 13px;
 }
