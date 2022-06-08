@@ -222,13 +222,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge color="error">
-<<<<<<< HEAD
-              <AddCircleOutlineSharpIcon onClick={()=>navigateToAdd()}/>
-=======
-                <NavLink to="/add">
                   <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
-                </NavLink>
->>>>>>> 4faf8803252c0251637a321ba7a1bf20bb05f3ab
               </Badge>
             </IconButton>
             <IconButton
@@ -237,11 +231,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Badge badgeContent={1} color="error">
-<<<<<<< HEAD
-                <AddShoppingCartIcon/>
-=======
                 <AddShoppingCartIcon />
->>>>>>> 4faf8803252c0251637a321ba7a1bf20bb05f3ab
               </Badge>
             </IconButton>
 

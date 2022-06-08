@@ -10,7 +10,6 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Products.css";
 import ReactPaginate from "react-paginate";
 import { productContext } from "../../Context/ProductContext";
-// import { Filter } from "@mui/icons-material";
 import Filter from "../Filter/Filter";
 
 const Products = () => {
