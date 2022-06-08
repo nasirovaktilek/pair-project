@@ -19,7 +19,7 @@ const Filter = ({ type, setType }) => {
       >
         <FormControlLabel value="Drinks" control={<Radio />} label="Drinks" />
         <FormControlLabel
-          value="Desserts"
+          value="Dessert"
           control={<Radio />}
           label="Desserts"
         />
