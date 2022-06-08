@@ -10,23 +10,25 @@ body {
   justify-content: space-evenly;
   width: 80%;
   min-height: 1000px;
-  padding-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .main_container {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex; */
+  /* justify-content: space-between; */
 }
 
 .filter {
+  display: flex;
+  text-align: center;
   box-sizing: border-box;
-  background-color: #cfcfcf98;
-  width: 20%;
-  height: 400px;
-  margin-top: 50px;
+  background-color: rgb(205, 143, 35);
+  width: 80%;
+  height: 30px;
+  margin: 80px auto 0px;
   padding: 20px;
-  margin-left: 20px;
-  border-radius: 25px;
+  border-radius: 13px;
 }
 
 .paginationBttns {

@@ -17,6 +17,8 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
 import { NavLink, useNavigate } from "react-router-dom";
+import { Button } from "bootstrap";
+import RestaurantMenuOutlinedIcon from '@mui/icons-material/RestaurantMenuOutlined';
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -88,6 +90,10 @@ export default function PrimarySearchAppBar() {
   };
   const navigateToLoginPage = () => {
     navigate("/login")
+  }
+
+  const navigateToList = () => {
+    navigate("/list")
   }
 
   const menuId = "primary-search-account-menu";
@@ -166,7 +172,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar sx={{ backgroundColor: "black" }}>
           <IconButton
             size="large"
@@ -207,26 +213,25 @@ export default function PrimarySearchAppBar() {
 
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <IconButton>
+              <RestaurantMenuOutlinedIcon sx={{color: "white"}} onClick={()=> navigateToList()}/>
+            </IconButton>
             <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
             >
               <Badge color="error">
-              <NavLink to="/add">
-                <AddCircleOutlineSharpIcon />
-            </NavLink>
+              <AddCircleOutlineSharpIcon onClick={()=>navigateToAdd()}/>
               </Badge>
             </IconButton>
-
             <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
             >
               <Badge badgeContent={1} color="error">
-
-                <AddShoppingCartIcon onClick={()=>navigateToAdd()}/>
+                <AddShoppingCartIcon/>
               </Badge>
             </IconButton>
 

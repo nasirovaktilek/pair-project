@@ -26,7 +26,7 @@ const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   const location = useLocation();
-  console.log(location.search);
+  // console.log(location.search);
 
   const addProduct = async (newProduct) => {
     await axios.post(API, newProduct);

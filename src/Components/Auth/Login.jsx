@@ -21,8 +21,8 @@ function Copyright(props) {
       variant="body2"
       color="text.secondary"
       align="center"
-      {...props}
-    >
+      {...props}    
+      >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Your Website
@@ -57,8 +57,13 @@ export default function Login() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+    <ThemeProvider
+
+    theme={theme}>
+      
+      <Container component="main" maxWidth="xs"
+      style={{backgroundColor: "white", borderRadius: "13px"}}
+      >
         <CssBaseline />
         <Box
           sx={{

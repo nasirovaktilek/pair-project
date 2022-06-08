@@ -1,3 +1,4 @@
+import { Details } from "@mui/icons-material";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AddProduct from "./Components/Admin/AddProduct/AddProduct";
@@ -12,6 +13,7 @@ const MainRoutes = () => {
       <Route path="/add" element={<AddProduct />} />
       <Route path="/login" element={<Login />} />
       <Route path="/list" element={<Products />} />
+      <Route path="/details/:id" element={<Details />} />
     </Routes>
   );
 };
