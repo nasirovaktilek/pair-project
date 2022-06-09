@@ -13,15 +13,14 @@ const ProductDetails = () => {
   const { deleteProduct } = useContext(productContext);
 
   const { getProductsDetails, productDetails } = useContext(productContext);
-  console.log("effect in details");
-
+  
   useEffect(() => {
     getProductsDetails(id);
   }, []);
 
   return (
     <Grid className="product__block-details" sx={{paddingTop:'10%'}}>
-      <Container >
+      <Container>
         <Grid container spacing={2}>
         <img width={500} 
         src={productDetails.image} 
