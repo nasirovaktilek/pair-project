@@ -1,18 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Alert from "@mui/material/Alert";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
-import Paper from "@mui/material/Paper";
 import { productContext } from "../../Context/ProductContext";
+import { Alert, Box, Container, Grid, Typography } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const ProductDetails = () => {
   let { id } = useParams();
+  const { deleteProduct } = useContext(productContext);
 
   const { getProductsDetails, productDetails } = useContext(productContext);
   console.log("effect in details");
@@ -22,11 +20,14 @@ const ProductDetails = () => {
   }, []);
 
   return (
-    <section className="product__block-details">
-      <Container>
-        <img width={500} src={productDetails.image} alt={productDetails.name} />
+    <Grid className="product__block-details" sx={{paddingTop:'10%'}}>
+      <Container >
         <Grid container spacing={2}>
-          <Grid item xs={6}></Grid>
+        <img width={500} 
+        src={productDetails.image} 
+        alt={productDetails.name}
+        style={{borderRadius:'13px'}}
+        />
           <Grid item xs={6} sx={{ mt: 5 }}>
             <Typography
               variant="h3"
@@ -44,7 +45,7 @@ const ProductDetails = () => {
               severity="success"
               sx={{ fontWeight: 700, mt: "20px" }}
             >
-              Скидка : 10 %
+              Discount : 10 %
             </Alert>
             <Box
               component="div"
@@ -73,7 +74,7 @@ const ProductDetails = () => {
                 component="div"
                 sx={{ fontWeight: 700, letterSpacing: 2 }}
               >
-                {productDetails.price} с.
+                {productDetails.price} $
               </Typography>
             </Box>
             <Button
@@ -83,22 +84,37 @@ const ProductDetails = () => {
               fullWidth={true}
               sx={{ mt: "20px", height: "50px" }}
             >
-              Добавить в корзину
+              Add To Cart
             </Button>
             <NavLink to={`/edit/${productDetails.id}`}>
-              <Button>Edit</Button>
+              <Button
+               variant="contained"
+               color="info"
+               startIcon={<EditIcon />}
+               fullWidth={true}
+               sx={{ mt: "20px", height: "50px", width:'180px' }}
+               >Edit</Button>
+              <Button onClick={() => deleteProduct(productDetails.id) }
+              variant="contained"
+              color="error"
+              startIcon={<DeleteForeverIcon />}
+              fullWidth={true}
+              sx={{ mt: "20px", height: "50px", width:'180px' }}
+              >
+                Delete
+              </Button>
             </NavLink>
             <Alert
               severity="info"
               variant="outlined"
               sx={{ fontWeight: 700, mt: "20px" }}
             >
-              Телефон: 54545454
+              Номер кофейни должен быть здесь 
             </Alert>
           </Grid>
         </Grid>
       </Container>
-    </section>
+    </Grid>
   );
 };
 

@@ -13,13 +13,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-// import MoreIcon from "@mui/icons-material/MoreVert";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp";
-import { NavLink, useNavigate } from "react-router-dom";
-import { Button } from "bootstrap";
 import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
 import { cartContext } from "../../Context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -179,7 +177,7 @@ export default function PrimarySearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
-        <Toolbar sx={{ backgroundColor: "black" }}>
+        <Toolbar sx={{ backgroundColor: "#1e1c1c" }}>
           <IconButton
             size="large"
             edge="start"
