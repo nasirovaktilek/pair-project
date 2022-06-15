@@ -37,21 +37,9 @@ const Filter = ({ type, setType }) => {
           onChange={(e) => setType(e.target.value)}
         >
           <FormControlLabel value="Drinks" control={<Radio />} label="DRINKS" />
-          <FormControlLabel
-            value="Dessert"
-            control={<Radio />}
-            label="DESSERTS"
-          />
-          <FormControlLabel
-            value="Burger"
-            control={<Radio />}
-            label="BURGERS"
-          />
-          <FormControlLabel
-            value="Main Dishes"
-            control={<Radio />}
-            label="MAIN DISHES"
-          />
+          <FormControlLabel value="Dessert" control={<Radio />} label="DESSERTS" />
+          <FormControlLabel value="Burger" control={<Radio />} label="BURGERS" />
+          <FormControlLabel value="Main Dishes" control={<Radio />} label="MAIN DISHES" />
           <FormControlLabel value="All" control={<Radio />} label="ALL" />
         </RadioGroup>
       </Box>
