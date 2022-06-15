@@ -44,12 +44,12 @@ const Cart = () => {
               borderRadius: "20px",
             }}
           >
-            <th></th>
+            <th sx={{ marginBottom: "100px" }}>IMAGE</th>
             <th>TITLE</th>
             <th>PRICE</th>
             <th>AMOUNT</th>
             <th>PRODUCT AMOUNT</th>
-            <tr></tr>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -57,12 +57,6 @@ const Cart = () => {
             ? cart.products.map((elem) => (
                 <tr key={elem.item.id}>
                   <td>
-                    {/* <img
-                      width={200}
-                      src={elem.item.image}
-                      alt={elem.item.name}
-                    /> */}
-
                     <CardMedia
                       sx={{
                         width: "200px",
@@ -122,6 +116,7 @@ const Cart = () => {
                 </tr>
               ))
             : null}
+          {/* <hr style={{ borderBottom: "2px solid maroon" }} /> */}
         </tbody>
       </table>
 
