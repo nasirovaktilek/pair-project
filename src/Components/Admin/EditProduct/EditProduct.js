@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { productContext } from "../../../Context/ProductContext";
 import SaveIcon from "@mui/icons-material/Save";
 import Image from "../../../assets/images/bg_1.jpg";
+
 const EditProduct = () => {
   console.log("Edit page");
   const { productDetails, getProductsDetails, editProduct } =

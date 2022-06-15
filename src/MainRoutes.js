@@ -18,6 +18,7 @@ const MainRoutes = () => {
       <Route path="/details/:id" element={<ProductDetails />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/edit/:id" element={<EditProduct />} />
+      {/* <Route path="/payment" element={<Payment />} /> */}
     </Routes>
   );
 };
