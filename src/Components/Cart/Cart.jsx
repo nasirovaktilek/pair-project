@@ -21,7 +21,8 @@ const Cart = () => {
     >
       <Box
         sx={{
-          margin: "70px 600px",
+          margin: "70px auto",
+          textAlign: "center",
           fontSize: "50px",
           fontFamily: "Great Vibes",
           color: "#c49b63",
@@ -37,6 +38,10 @@ const Cart = () => {
               marginBottom: "50px",
               textAlign: "center",
               fontFamily: "Josefin Sans",
+              backgroundColor: "#c49b63",
+              height: "50px",
+              border: "3px solid #c49b63",
+              borderRadius: "20px",
             }}
           >
             <th></th>
@@ -44,6 +49,7 @@ const Cart = () => {
             <th>PRICE</th>
             <th>AMOUNT</th>
             <th>PRODUCT AMOUNT</th>
+            <tr></tr>
           </tr>
         </thead>
         <tbody>
@@ -91,6 +97,7 @@ const Cart = () => {
 
                   <td>
                     <input
+                      style={{ width: "70%" }}
                       type="number"
                       value={elem.count}
                       onChange={(e) =>
@@ -105,13 +112,10 @@ const Cart = () => {
                       paddingLeft: "80px",
                     }}
                   >
-                    {elem.subPrice}
+                    {elem.subPrice} $
                   </td>
                   <td>
-                    <Button
-                      // sx={{ border: "Background" }}
-                      onClick={() => deleteCartProduct(elem.item.id)}
-                    >
+                    <Button onClick={() => deleteCartProduct(elem.item.id)}>
                       DELETE
                     </Button>
                   </td>
