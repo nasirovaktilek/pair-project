@@ -18,6 +18,7 @@ import AddCircleOutlineSharpIcon from "@mui/icons-material/AddCircleOutlineSharp
 import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
 import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
+import LiveSearch from "../LiveSearch/LiveSearch";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -88,6 +89,7 @@ export default function PrimarySearchAppBar() {
   const navigateToAdd = () => {
     navigate("/add");
   };
+
   const navigateToLoginPage = () => {
     navigate("/login");
   };
@@ -268,7 +270,7 @@ export default function PrimarySearchAppBar() {
             </IconButton>
           </Box> */}
 
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -277,7 +279,8 @@ export default function PrimarySearchAppBar() {
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
             />
-          </Search>
+          </Search> */}
+          <LiveSearch />
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

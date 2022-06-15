@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, Button, CardActions } from "@mui/material";
 import RestoreFromTrashIcon from "@mui/icons-material/RestoreFromTrash";
-import { NavLink, useSearchParams } from "react-router-dom";
+import { Link, NavLink, useSearchParams } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Products.css";
 import ReactPaginate from "react-paginate";
@@ -77,9 +77,9 @@ const Products = () => {
         <h2>MENU</h2>
       </Box> */}
       <div className="main_container">
-        <div className="filter">
+        <Box className="filter" sx={{ width: "100%" }}>
           <Filter type={type} setType={setType} />
-        </div>
+        </Box>
         <div className="container">
           {products
             ? products.slice(productVisited, sliceTwoIndex).map((item) => (
@@ -88,7 +88,7 @@ const Products = () => {
                   className="card"
                   sx={{
                     borderRadius: "20px",
-                    width: "320px",
+                    // width: "320px",
                     height: "530px ",
                     marginBottom: "50px",
                     backgroundColor: "#1e1c1c6b",
@@ -176,7 +176,7 @@ const Products = () => {
                     </Button> */}
 
                     <Box sx={{ marginBottom: "5%" }}>
-                      <NavLink to={`/details/${item.id}`}>
+                      <Link to={`/details/${item.id}`}>
                         <Button
                           sx={{
                             color: "#808080",
@@ -189,7 +189,7 @@ const Products = () => {
                         >
                           Preview
                         </Button>
-                      </NavLink>
+                      </Link>
 
                       <Button onClick={(e) => addProductToCart(item)}>
                         <AddShoppingCartIcon sx={{ color: "#808080" }} />

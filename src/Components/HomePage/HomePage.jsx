@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+import { Button } from "@mui/material";
 import "./HomePage.css";
 import carouselImage1 from "../../assets/images/bg_1.jpg";
 import carouselImage2 from "../../assets/images/bg_2.jpg";
@@ -23,9 +24,11 @@ const HomePage = () => {
         {/* //! HomePage start */}
         <div>
           <Carousel>
-            <Carousel.Item>
+            <Carousel.Item
+            // style={{ backgroundImage: `url(${carouselImage1})` }}
+            >
               <img
-                style={{ height: "930px" }}
+                // style={{ height: "930px" }}
                 interval={500}
                 className="d-block w-100"
                 src={carouselImage1}
@@ -86,7 +89,7 @@ const HomePage = () => {
 
             <Carousel.Item interval={500}>
               <img
-                style={{ height: "930px" }}
+                // style={{ height: "930px" }}
                 className="d-block w-100"
                 src={carouselImage2}
                 alt={carouselImage2}
@@ -146,7 +149,7 @@ const HomePage = () => {
 
             <Carousel.Item interval={500}>
               <img
-                style={{ height: "930px" }}
+                // style={{ height: "930px" }}
                 className="d-block w-100"
                 src={carouselImage3}
                 alt={carouselImage3}
@@ -211,24 +214,24 @@ const HomePage = () => {
           <section
             // style={{ backgroundColor: "#1e1c1c" }}
             className="ftco-about d-md-flex"
+            style={{ position: "relative", backgroundColor: "#1e1c1c" }}
           >
             <Box
               className="one-half img"
               // style={{ backgroundImage: `url(${aboutImg})` }}
             >
-              <img src={aboutImg} alt={aboutImg} />
+              <img src={aboutImg} alt={aboutImg} width={"100%"} />
             </Box>
             <Box
               className="one-half ftco-animate"
-              style={{ position: "absolute" }}
+              style={{ position: "absolute", right: "180px", top: "20px" }}
             >
               <Box
                 className="overlap"
                 style={{
                   backgroundColor: "#1b1b1b5e",
-                  position: "relative",
                   width: "600px",
-                  marginLeft: "900px",
+                  // marginLeft: "900px",
                   marginTop: "100px",
                   borderRadius: "20px",
                 }}
@@ -287,23 +290,27 @@ const HomePage = () => {
         {/* //! Section 3 start */}
         <Box>
           <section
-            style={{ backgroundColor: "#C49B63", height: "600px" }}
+            style={{
+              backgroundColor: "#C49B63",
+              height: "600px",
+              paddingTop: "60px",
+            }}
             className="ftco-section ftco-services"
           >
-            <div style={{ margin: "0 20px" }} className="container">
+            <div className="container">
               <div className="row">
-                <div className="col-md-4 ftco-animate">
-                  <div
-                    style={{ width: "400px", margin: "100px" }}
-                    className="media d-block text-center block-6 services"
-                  >
+                <div
+                  className="col-md-4 ftco-animate"
+                  style={{ textAlign: "center" }}
+                >
+                  <div className="media d-block text-center block-6 services">
                     <div className="icon d-flex justify-content-center align-items-center mb-5">
                       <span className="flaticon-choices"></span>
                       <img style={{ width: "100px" }} src={order} alt={order} />
                     </div>
-                    <div className="media-body">
+                    <div>
                       <h3
-                        style={{ fontFamily: "Josefin Sans", margin: "30px" }}
+                        style={{ fontFamily: "Josefin Sans" }}
                         className="heading"
                       >
                         Easy to Order
@@ -321,11 +328,12 @@ const HomePage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-4 ftco-animate">
-                  <div
-                    style={{ width: "400px", margin: "100px" }}
-                    className="media d-block text-center block-6 services"
-                  >
+
+                <div
+                  className="col-md-4 ftco-animate"
+                  style={{ textAlign: "center" }}
+                >
+                  <div className="media d-block text-center block-6 services">
                     <div className="icon d-flex justify-content-center align-items-center mb-5">
                       <span className="flaticon-delivery-truck"></span>
                       <img
@@ -336,7 +344,7 @@ const HomePage = () => {
                     </div>
                     <div className="media-body">
                       <h3
-                        style={{ fontFamily: "Josefin Sans", margin: "30px" }}
+                        style={{ fontFamily: "Josefin Sans" }}
                         className="heading"
                       >
                         Fastest Delivery
@@ -354,11 +362,9 @@ const HomePage = () => {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-md-4 ftco-animate">
-                  <div
-                    style={{ width: "400px", margin: "100px" }}
-                    className="media d-block text-center block-6 services"
-                  >
+                  <div className="media d-block text-center block-6 services">
                     <div className="icon d-flex justify-content-center align-items-center mb-5">
                       <span className="flaticon-coffee-bean"></span>
                       <img
@@ -369,7 +375,7 @@ const HomePage = () => {
                     </div>
                     <div className="media-body">
                       <h3
-                        style={{ fontFamily: "Josefin Sans", margin: "30px" }}
+                        style={{ fontFamily: "Josefin Sans" }}
                         className="heading"
                       >
                         Quality Coffee
@@ -395,12 +401,12 @@ const HomePage = () => {
         {/* //! Section 4 start */}
         <Box>
           <section style={{ color: "#FFFFFFB3" }} className="ftco-section">
-            <div className="container">
-              <div
+            <Box className="container">
+              <Box
                 style={{ marginBottom: "100px" }}
                 className="row justify-content-center mb-5 pb-3"
               >
-                <div
+                <Box
                   style={{ marginTop: "50px" }}
                   className="col-md-7 heading-section ftco-animate text-center"
                 >
@@ -435,8 +441,8 @@ const HomePage = () => {
                     countries Vokalia and Consonantia, there live the blind
                     texts.
                   </p>
-                </div>
-              </div>
+                </Box>
+              </Box>
               <div className="row">
                 <div className="col-md-3">
                   <div className="menu-entry">
@@ -470,16 +476,16 @@ const HomePage = () => {
                         <span>$5.90</span>
                       </p>
                       <p>
-                        <button
+                        <Button
                           className="btn btn-dark btn-outline-light"
                           style={{
-                            // outline: "#c49b63",
-                            // backgroundColor: "#c49b63",
                             marginBottom: "60px",
+                            backgroundColor: "#c49b63",
+                            color: "white",
                           }}
                         >
                           Add to Cart
-                        </button>
+                        </Button>
                       </p>
                     </div>
                   </div>
@@ -517,17 +523,16 @@ const HomePage = () => {
                         <span>$5.90</span>
                       </p>
                       <p>
-                        <button
+                        <Button
                           className="btn btn-dark btn-outline-light"
-                          style={
-                            {
-                              // outline: "#c49b63",
-                              // backgroundColor: "#c49b63",
-                            }
-                          }
+                          style={{
+                            marginBottom: "60px",
+                            backgroundColor: "#c49b63",
+                            color: "white",
+                          }}
                         >
                           Add to Cart
-                        </button>
+                        </Button>
                       </p>
                     </div>
                   </div>
@@ -565,17 +570,16 @@ const HomePage = () => {
                         <span>$5.90</span>
                       </p>
                       <p>
-                        <button
+                        <Button
                           className="btn btn-dark btn-outline-light"
-                          style={
-                            {
-                              // outline: "#c49b63",
-                              // backgroundColor: "#c49b63",
-                            }
-                          }
+                          style={{
+                            marginBottom: "60px",
+                            backgroundColor: "#c49b63",
+                            color: "white",
+                          }}
                         >
                           Add to Cart
-                        </button>
+                        </Button>
                       </p>
                     </div>
                   </div>
@@ -612,23 +616,22 @@ const HomePage = () => {
                         <span>$5.90</span>
                       </p>
                       <p>
-                        <button
+                        <Button
                           className="btn btn-dark btn-outline-light"
-                          style={
-                            {
-                              // outline: "#c49b63",
-                              // backgroundColor: "#c49b63",
-                            }
-                          }
+                          style={{
+                            marginBottom: "60px",
+                            backgroundColor: "#c49b63",
+                            color: "white",
+                          }}
                         >
                           Add to Cart
-                        </button>
+                        </Button>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Box>
           </section>
         </Box>
         {/* //! Footer start */}

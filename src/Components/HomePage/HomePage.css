@@ -1,3 +1,12 @@
-/* * {
-  background-color: #1e1c1c6b;
+body {
+  background-color: #1e1c1c;
+}
+
+/* .menu-entry {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+img {
+  width: 40%;
 } */
