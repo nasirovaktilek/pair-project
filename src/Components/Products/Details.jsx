@@ -7,11 +7,12 @@ import { productContext } from "../../Context/ProductContext";
 import { Alert, Box, Container, Grid, Typography } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { authContext } from "../../Context/AuthContext";
 
 const ProductDetails = () => {
   let { id } = useParams();
   const { deleteProduct } = useContext(productContext);
-
+  const {user} = React.useContext(authContext)
   const { getProductsDetails, productDetails } = useContext(productContext);
   
   useEffect(() => {
@@ -85,6 +86,7 @@ const ProductDetails = () => {
             >
               Add To Cart
             </Button>
+            {/* {user.email === "admin@gmail.com" ? (  */}
             <NavLink to={`/edit/${productDetails.id}`}>
               <Button
                variant="contained"
@@ -103,6 +105,8 @@ const ProductDetails = () => {
                 Delete
               </Button>
             </NavLink>
+            {/* ) : null } */}
+
             <Alert
               severity="info"
               variant="outlined"

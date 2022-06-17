@@ -5,11 +5,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import API_AUTH from "../../Config";
 
-
-const Login = () => {
-  
+const Register = () => {
   const [inpEmail, setEmail] = useState("");
   const [inpPassword, setPassword] = useState("");
+  const [inpPasswordConfirm, setPasswordConfirm] = useState("");
+  const [inpName, setName] = useState("");
+  const [inpLastName, setLastName] = useState("");
 
   const navigate = useNavigate();
   const notify = (error) => {
@@ -19,16 +20,32 @@ const Login = () => {
     });
   };
 
-  const registerUser = async (newUser) => {
+  const loginUser = async (newUser) => {
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
     try {
       const res = await axios.post(`${API_AUTH}login/`, newUser, config);
+      console.log(res);
       const { access, refresh } = res.data;
       localStorage.setItem("access", access);
       localStorage.setItem("refresh", refresh);
-      navigate("/check-token");
+      navigate("/products");
+    } catch (error) {
+      notify(error.response.data);
+    }
+  };
+
+  const registerUser = async (newUser) => {
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        // "Access-Control-Allow-Origin": "http://localhost:3000",
+      },
+    };
+    try {
+      await axios.post(`${API_AUTH}register/`, newUser, config);
+      // loginUser(newUser);
     } catch (error) {
       notify(error.response.data);
     }
@@ -38,9 +55,15 @@ const Login = () => {
     const form_data = new FormData();
     if (!inpEmail) notify("Enter email");
     else if (!inpPassword) notify("Enter password");
+    else if (!inpPasswordConfirm) notify("Enter password");
+    else if (!inpName) notify("Enter name");
+    else if (!inpLastName) notify("Enter last name");
     else {
       form_data.append("email", inpEmail);
       form_data.append("password", inpPassword);
+      form_data.append("password_confirm", inpPasswordConfirm);
+      form_data.append("name", inpName);
+      form_data.append("last_name", inpLastName);
       registerUser(form_data);
     }
   }
@@ -57,10 +80,10 @@ const Login = () => {
     >
       <div className="card" style={{ width: "50vw" }}>
         <div className="card-body">
-          <h2>Login</h2>
+          <h2>Create new account</h2>
           <div className="mb-3">
             <input
-              type="text"
+              type="email"
               className="form-control"
               onChange={(e) => setEmail(e.target.value)}
               name="email"
@@ -78,12 +101,43 @@ const Login = () => {
               placeholder="*Password"
             />
           </div>
-          <button
+          <div className="mb-3">
+            <input
+              type="password"
+              className="form-control"
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+              name="password_confirm"
+              key="password_confirm"
+              placeholder="*Password Confirmation"
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="name"
+              className="form-control"
+              onChange={(e) => setName(e.target.value)}
+              name="name"
+              key="name"
+              placeholder="*Name"
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="last_name"
+              className="form-control"
+              onChange={(e) => setLastName(e.target.value)}
+              name="last_name"
+              key="last_name"
+              placeholder="*Last Name"
+            />
+          </div>
+
+<button
             onClick={handleClick}
             className="btn btn-light"
             style={{ width: "100%" }}
           >
-            Login
+            Sign up
           </button>
           <ToastContainer />
         </div>
@@ -92,4 +146,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

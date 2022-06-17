@@ -44,7 +44,7 @@ const Cart = () => {
               borderRadius: "20px",
             }}
           >
-            <th></th>
+            <th>IMAGE</th>
             <th>TITLE</th>
             <th>PRICE</th>
             <th>AMOUNT</th>
@@ -57,17 +57,11 @@ const Cart = () => {
             ? cart.products.map((elem) => (
                 <tr key={elem.item.id}>
                   <td>
-                    {/* <img
-                      width={200}
-                      src={elem.item.image}
-                      alt={elem.item.name}
-                    /> */}
-
                     <CardMedia
                       sx={{
                         width: "200px",
                         height: "200px",
-                        margin: "20px 30px",
+                        margin: "100px 30px",
                         borderRadius: "10px",
                       }}
                       component="img"

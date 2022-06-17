@@ -1,105 +1,102 @@
-import { createContext, useEffect, useState } from "react";
-import fire from "../fire";
+import axios from "axios";
+import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const authContext = createContext();
 
+const API = "http://18.134.99.184";
+
+export const useAuth = () => {
+  return useContext(authContext);
+};
+
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [hasAccount, setHasAccount] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const clearInputs = () => {
-    setEmail("");
-    setPassword("");
+  const register = async (user) => {
+    const config = {
+      headers: { "Content-Type": "multipart/form-data" },
+    };
+    let formData = new FormData();
+    formData.append("username", user.email);
+    formData.append("password", user.password);
+
+    try {
+      const res = await axios.post(`${API}register/`, formData, config);
+      navigate("/login");
+    } catch (e) {
+      console.log(e);
+      setError("error occured");
+    }
   };
 
-  const clearErrors = () => {
-    setEmailError("");
-    setPasswordError("");
-  };
+  async function login(username, password) {
+    console.log(username, password);
+    const config = {
+      headers: { "Content-Type": "multipart/form-data" },
+    };
+    let formData = new FormData();
+    formData.append("username", username);
+    formData.append("password", password);
 
-  const handleSignUp = () => {
-    clearErrors();
-    fire
-      .auth(0) //метод firebase для регистрации
-      .createUserWithEmailAndPassword(email, password) // тоже для регистрации (работают только вместе с предыдущим методом)
-      .catch((error) => {
-        switch (error.code) {
-          case "auth/email-already-in-use":
-            setEmailError(error.message);
-            break;
-          case "auth/invalid-email":
-            setEmailError(error.message);
-            break;
-          case "auth/weak-password":
-            setPasswordError(error.message);
-            break;
-          default:
-            setEmailError(error.message);
-            setPasswordError(error.message);
+    try {
+      let res = await axios.post(`${API}api/token/`, formData, config);
+      localStorage.setItem("token", JSON.stringify(res.data));
+      localStorage.setItem("username", username);
+      setUser(username);
+      navigate("/");
+    } catch (error) {
+      setError("error occured");
+    }
+  }
+
+  async function checkAuth() {
+    let token = JSON.parse(localStorage.getItem("token"));
+    try {
+      const Authorization = `Bearer ${token.access}`;
+
+      let res = await axios.post(
+        `${API}api/token/refresh/`,
+        {
+          refresh: token.refresh,
+        },
+        {
+          headers: { Authorization },
         }
-      });
-  };
+      );
 
-  const handleLogin = () => {
-    clearErrors();
-    fire
-      .auth()
-      .signInWithEmailAndPassword(email.password)
-      .catch((error) => {
-        switch (error.code) {
-          case "auth/invalid-email":
-          case "auth/user-not-found":
-          case "auth/user-disabled":
-            setEmailError(error.message);
-            break;
-          case "auth/wrong-password":
-            setPasswordError(error.message);
-            break;
-          default:
-            setEmailError(error.message);
-            setPasswordError(error.message);
-        }
-      });
-  };
+      localStorage.setItem(
+        "token",
+        JSON.stringify({
+          refresh: token.refresh,
+          access: res.data.access,
+        })
+      );
 
-  const handleLogout = () => {
-    fire.auth().signOut();
-  };
+      let userName = localStorage.getItem("username");
+      setUser(userName);
+    } catch (error) {
+      logout();
+    }
+  }
 
-  const authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
-      if (user) {
-        clearInputs();
-        setUser(user);
-      } else {
-        setUser("");
-      }
-    });
-  };
-  useEffect(() => {
-    authListener();
-  }, []);
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    setUser("");
+  }
 
   return (
     <authContext.Provider
       value={{
-        email,
+        register,
+        login,
         user,
-        password,
-        hasAccount,
-        emailError,
-        passwordError,
-
-        setEmail,
-        setPassword,
-        handleLogin,
-        handleSignUp,
-        handleLogout,
-        setHasAccount,
+        error,
+        checkAuth,
+        logout,
       }}
     >
       {children}

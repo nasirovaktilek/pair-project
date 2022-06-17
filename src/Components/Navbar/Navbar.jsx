@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -19,6 +19,7 @@ import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlin
 import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
+import {authContext} from "../../Context/AuthContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -65,6 +66,8 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
+  const {user} = React.useContext(authContext);
+  console.log(user);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -225,6 +228,7 @@ export default function PrimarySearchAppBar() {
                 onClick={() => navigateToList()}
               />
             </IconButton>
+            {user.email === "admin@gmail.com" ? (
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -233,7 +237,8 @@ export default function PrimarySearchAppBar() {
               <Badge color="error">
                 <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
               </Badge>
-            </IconButton>
+            </IconButton> 
+          ) : null }
             <IconButton
               size="large"
               aria-label="show 4 new mails"
