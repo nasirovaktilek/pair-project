@@ -106,9 +106,9 @@ export default function PrimarySearchAppBar() {
     navigate("/cart");
   };
 
-  const navigateToPay = () => {
-    navigate("/payment");
-  };
+  // const navigateToPay = () => {
+  //   navigate("/payment");
+  // };
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -253,7 +253,7 @@ export default function PrimarySearchAppBar() {
               </Badge>
             </IconButton>
 
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
@@ -261,7 +261,7 @@ export default function PrimarySearchAppBar() {
               <Badge color="error">
                 <PaidIcon onClick={() => navigateToPay()} />
               </Badge>
-            </IconButton>
+            </IconButton> */}
 
             <IconButton
               size="large"

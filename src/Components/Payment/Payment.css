@@ -1,7 +1,16 @@
 body {
-  background-color: #1e1c1c;
+  background-color: #1e1c1c !important;
 }
 
 .pay {
-  color: aliceblue;
+  color: rgb(136, 18, 18);
+  margin: 25px;
+}
+.textField {
+  margin: 7px !important;
+  color: hsl(33, 67%, 46%);
+}
+.btnSaveCard {
+  margin: 7px !important;
+  background-color: hsl(33, 67%, 46%) !important;
 }
