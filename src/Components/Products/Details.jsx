@@ -2,51 +2,57 @@ import React, { useContext, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import { productContext } from "../../Context/ProductContext";
 import { Alert, Box, Container, Grid, Typography } from "@mui/material";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { authContext } from "../../Context/AuthContext";
+// import bgImage from "../../../assets/images/bg_home_page.jpg";
 
 const ProductDetails = () => {
   let { id } = useParams();
   const { deleteProduct } = useContext(productContext);
-  const {user} = React.useContext(authContext)
+  const { user } = React.useContext(authContext)
   const { getProductsDetails, productDetails } = useContext(productContext);
-  
+
   useEffect(() => {
     getProductsDetails(id);
   }, []);
 
   return (
-    <Grid className="product__block-details" sx={{paddingTop:'10%'}}>
+    <Grid
+      className="product__block-details"
+      style={{
+        paddingTop: "10%",
+        paddingBottom: "10%",
+        backgroundColor: "#C49B63",
+      }}
+    >
       <Container>
         <Grid container spacing={2}>
-        <img width={500} 
-        src={productDetails.image} 
-        alt={productDetails.name}
-        style={{borderRadius:'13px'}}
-        />
-          <Grid item xs={6} sx={{ mt: 5 }}>
+          <img
+            width={550}
+            src={productDetails.image}
+            alt={productDetails.name}
+            style={{ borderRadius: "13px" }}
+          />
+          <Grid item xs={6} sx={{ margin: "20px 10px", alignItems: "center" }}>
             <Typography
               variant="h3"
               gutterBottom
               component="h3"
-              sx={{ fontWeight: 700, letterSpacing: 2 }}
+              sx={{
+                fontWeight: 700,
+                letterSpacing: 2,
+                fontSize: "30px",
+              }}
             >
-              {productDetails.title}
+              {productDetails.name}
             </Typography>
-            <Typography variant="body2" gutterBottom>
+            {/* <Typography variant="body2" gutterBottom>
               {productDetails.description}
-            </Typography>
-            <Alert
-              icon={<TrendingDownIcon fontSize="inherit" />}
-              severity="success"
-              sx={{ fontWeight: 700, mt: "20px" }}
-            >
-              Discount : 10 %
-            </Alert>
+            </Typography> */}
+
             <Box
               component="div"
               sx={{
@@ -62,8 +68,8 @@ const ProductDetails = () => {
                 component="div"
                 sx={{
                   fontWeight: 300,
-                  letterSpacing: 2,
-                  textDecoration: "line-through",
+                  // letterSpacing: 2,
+                  // textDecoration: "line-through",
                   marginRight: "20px",
                 }}
               >
@@ -79,28 +85,43 @@ const ProductDetails = () => {
             </Box>
             <Button
               variant="contained"
-              color="success"
+              // color="success"
               startIcon={<AddShoppingCartIcon />}
               fullWidth={true}
-              sx={{ mt: "20px", height: "50px" }}
+              sx={{ mt: "20px", height: "50px", backgroundColor: "#1e1c1c" }}
             >
               Add To Cart
             </Button>
             {/* {user.email === "admin@gmail.com" ? (  */}
             <NavLink to={`/edit/${productDetails.id}`}>
               <Button
-               variant="contained"
-               color="info"
-               startIcon={<EditIcon />}
-               fullWidth={true}
-               sx={{ mt: "20px", height: "50px", width:'180px' }}
-               >Edit</Button>
-              <Button onClick={() => deleteProduct(productDetails.id) }
-              variant="contained"
-              color="error"
-              startIcon={<DeleteForeverIcon />}
-              fullWidth={true}
-              sx={{ mt: "20px", height: "50px", width:'180px' }}
+                variant="contained"
+                // color="warning"
+                startIcon={<EditIcon />}
+                fullWidth={true}
+                sx={{
+                  mt: "20px",
+                  height: "50px",
+                  width: "180px",
+                  backgroundColor: "rgb(197, 151, 77)",
+                  borderColor: "red",
+                }}
+              >
+                Edit
+              </Button>
+              <Button
+                onClick={() => deleteProduct(productDetails.id)}
+                variant="contained"
+                // color="error"
+                startIcon={<DeleteForeverIcon />}
+                fullWidth={true}
+                sx={{
+                  mt: "20px",
+                  height: "50px",
+                  width: "180px",
+                  marginLeft: "10px",
+                  backgroundColor: "rgb(197, 151, 77)",
+                }}
               >
                 Delete
               </Button>
@@ -112,7 +133,7 @@ const ProductDetails = () => {
               variant="outlined"
               sx={{ fontWeight: 700, mt: "20px" }}
             >
-              Номер кофейни должен быть здесь 
+              Номер кофейни должен быть здесь
             </Alert>
           </Grid>
         </Grid>

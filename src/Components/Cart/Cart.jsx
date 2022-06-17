@@ -44,12 +44,12 @@ const Cart = () => {
               borderRadius: "20px",
             }}
           >
-            <th>IMAGE</th>
+            <th sx={{ marginBottom: "100px" }}>IMAGE</th>
             <th>TITLE</th>
             <th>PRICE</th>
             <th>AMOUNT</th>
             <th>PRODUCT AMOUNT</th>
-            <tr></tr>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -116,6 +116,7 @@ const Cart = () => {
                 </tr>
               ))
             : null}
+          {/* <hr style={{ borderBottom: "2px solid maroon" }} /> */}
         </tbody>
       </table>
 

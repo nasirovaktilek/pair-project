@@ -19,7 +19,8 @@ import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlin
 import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
-import {authContext} from "../../Context/AuthContext";
+import PaidIcon from "@mui/icons-material/Paid";
+import { authContext } from "../../Context/AuthContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -103,6 +104,10 @@ export default function PrimarySearchAppBar() {
 
   const addProductToCart = () => {
     navigate("/cart");
+  };
+
+  const navigateToPay = () => {
+    navigate("/payment");
   };
 
   const menuId = "primary-search-account-menu";
@@ -228,7 +233,6 @@ export default function PrimarySearchAppBar() {
                 onClick={() => navigateToList()}
               />
             </IconButton>
-            {user.email === "admin@gmail.com" ? (
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -237,8 +241,8 @@ export default function PrimarySearchAppBar() {
               <Badge color="error">
                 <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
               </Badge>
-            </IconButton> 
-          ) : null }
+            </IconButton>
+
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -246,6 +250,16 @@ export default function PrimarySearchAppBar() {
             >
               <Badge badgeContent={cartLength} color="error">
                 <ShoppingCartIcon onClick={() => addProductToCart()} />
+              </Badge>
+            </IconButton>
+
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
+              <Badge color="error">
+                <PaidIcon onClick={() => navigateToPay()} />
               </Badge>
             </IconButton>
 
