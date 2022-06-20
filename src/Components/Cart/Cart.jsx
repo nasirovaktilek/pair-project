@@ -3,6 +3,8 @@ import React, { useContext, useEffect } from "react";
 import { cartContext } from "../../Context/CartContext";
 // import { calcTotalPrice } from "../../helpers/cartFunctions";
 
+import { useNavigate } from "react-router-dom";
+
 const Cart = () => {
   const { cart, getCart, deleteCartProduct, changeProductCount } =
     useContext(cartContext);
@@ -11,6 +13,13 @@ const Cart = () => {
     getCart();
   }, []);
   console.log(cart.totalPrice);
+
+  const navigate = useNavigate();
+
+  const navigateToPay = () => {
+    navigate("/payment");
+  };
+
   return (
     <Box
       sx={{
@@ -61,7 +70,7 @@ const Cart = () => {
                       sx={{
                         width: "200px",
                         height: "200px",
-                        margin: "20px 30px",
+                        margin: "100px 30px",
                         borderRadius: "10px",
                       }}
                       component="img"
@@ -129,7 +138,9 @@ const Cart = () => {
       >
         <h4>TOTAL PRICE: {cart.totalPrice} $</h4>
 
-        <Button sx={{ textAlign: "end" }}>ORDER NOW</Button>
+        <Button sx={{ textAlign: "end" }} onClick={() => navigateToPay()}>
+          ORDER NOW
+        </Button>
       </Box>
     </Box>
   );

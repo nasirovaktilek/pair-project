@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -20,6 +20,7 @@ import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
 import PaidIcon from "@mui/icons-material/Paid";
+import { authContext } from "../../Context/AuthContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -66,6 +67,8 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
+  const {user} = React.useContext(authContext);
+  console.log(user);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -103,9 +106,9 @@ export default function PrimarySearchAppBar() {
     navigate("/cart");
   };
 
-  const navigateToPay = () => {
-    navigate("/payment");
-  };
+  // const navigateToPay = () => {
+  //   navigate("/payment");
+  // };
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -250,7 +253,7 @@ export default function PrimarySearchAppBar() {
               </Badge>
             </IconButton>
 
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
@@ -258,7 +261,7 @@ export default function PrimarySearchAppBar() {
               <Badge color="error">
                 <PaidIcon onClick={() => navigateToPay()} />
               </Badge>
-            </IconButton>
+            </IconButton> */}
 
             <IconButton
               size="large"

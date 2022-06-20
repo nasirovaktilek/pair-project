@@ -2,17 +2,17 @@ import React, { useContext, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 import { productContext } from "../../Context/ProductContext";
 import { Alert, Box, Container, Grid, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { authContext } from "../../Context/AuthContext";
 // import bgImage from "../../../assets/images/bg_home_page.jpg";
 
 const ProductDetails = () => {
   let { id } = useParams();
   const { deleteProduct } = useContext(productContext);
-
+  const { user } = React.useContext(authContext);
   const { getProductsDetails, productDetails } = useContext(productContext);
 
   useEffect(() => {
@@ -25,7 +25,8 @@ const ProductDetails = () => {
       style={{
         paddingTop: "10%",
         paddingBottom: "10%",
-        backgroundColor: "#C49B63",
+        // backgroundColor: "#C49B63",
+        backgroundColor: "#1e1c1c",
       }}
     >
       <Container>
@@ -88,10 +89,19 @@ const ProductDetails = () => {
               // color="success"
               startIcon={<AddShoppingCartIcon />}
               fullWidth={true}
-              sx={{ mt: "20px", height: "50px", backgroundColor: "#1e1c1c" }}
+              sx={{
+                color: "#808080",
+                marginTop: "20px",
+                height: "50px",
+                // borderColor: "#808080",
+              }}
+              className="btn"
+              size="medium"
+              variant="outlined"
             >
               Add To Cart
             </Button>
+            {/* {user.email === "admin@gmail.com" ? (  */}
             <NavLink to={`/edit/${productDetails.id}`}>
               <Button
                 variant="contained"
@@ -125,6 +135,8 @@ const ProductDetails = () => {
                 Delete
               </Button>
             </NavLink>
+            {/* ) : null } */}
+
             <Alert
               severity="info"
               variant="outlined"

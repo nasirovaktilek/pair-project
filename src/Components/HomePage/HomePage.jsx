@@ -210,29 +210,30 @@ const HomePage = () => {
           </Carousel>
         </div>
         {/* //! Section 2 start */}
-        <Box>
+        <Box className="sec2">
           <section
-            // style={{ backgroundColor: "#1e1c1c" }}
             className="ftco-about d-md-flex"
             style={{ position: "relative", backgroundColor: "#1e1c1c" }}
           >
-            <Box
-              className="one-half img"
-              // style={{ backgroundImage: `url(${aboutImg})` }}
-            >
-              <img src={aboutImg} alt={aboutImg} width={"100%"} />
+            <Box className="one-half" sx={{ width: "100%" }}>
+              <img
+                className="img1"
+                src={aboutImg}
+                alt={aboutImg}
+                width={"100%"}
+              />
             </Box>
             <Box
               className="one-half ftco-animate"
-              style={{ position: "absolute", right: "180px", top: "20px" }}
+              style={{ position: "absolute", right: "10%" }}
             >
               <Box
                 className="overlap"
                 style={{
                   backgroundColor: "#1b1b1b5e",
                   width: "600px",
-                  // marginLeft: "900px",
-                  marginTop: "100px",
+
+                  marginTop: "20%",
                   borderRadius: "20px",
                 }}
               >
@@ -443,10 +444,10 @@ const HomePage = () => {
                   </p>
                 </Box>
               </Box>
-              <div className="row">
+              <div className="row drinks">
                 <div className="col-md-3">
                   <div className="menu-entry">
-                    <img style={{ width: "300px" }} src={menu1} alt={menu1} />
+                    <img style={{ width: "100%" }} src={menu1} alt={menu1} />
                     <div className="text text-center pt-4">
                       <h3>
                         <a
@@ -456,9 +457,9 @@ const HomePage = () => {
                             textDecoration: "none",
                             color: "#FFFFFFB3",
                           }}
-                          href="#"
+                          href="/list"
                         >
-                          COFFEE CAPUCCINO
+                          CAPUCCINO
                         </a>
                       </h3>
                       <p
@@ -492,7 +493,7 @@ const HomePage = () => {
                 </div>
                 <div className="col-md-3">
                   <div className="menu-entry">
-                    <img style={{ width: "300px" }} src={menu2} alt={menu2} />
+                    <img style={{ width: "100%" }} src={menu2} alt={menu2} />
                     <div className="text text-center pt-4">
                       <h3>
                         <a
@@ -502,10 +503,10 @@ const HomePage = () => {
                             textDecoration: "none",
                             color: "#FFFFFFB3",
                           }}
-                          href="#"
+                          href="/list"
                         >
                           {" "}
-                          COFFEE CAPUCCINO
+                          MACCHIATO
                         </a>
                       </h3>
                       <p
@@ -539,7 +540,7 @@ const HomePage = () => {
                 </div>
                 <div className="col-md-3">
                   <div className="menu-entry">
-                    <img style={{ width: "300px" }} src={menu3} alt={menu3} />
+                    <img style={{ width: "100%" }} src={menu3} alt={menu3} />
                     <div className="text text-center pt-4">
                       <h3>
                         <a
@@ -549,10 +550,10 @@ const HomePage = () => {
                             textDecoration: "none",
                             color: "#FFFFFFB3",
                           }}
-                          href="#"
+                          href="/list"
                         >
                           {" "}
-                          COFFEE CAPUCCINO
+                          LATTE
                         </a>
                       </h3>
                       <p
@@ -586,7 +587,7 @@ const HomePage = () => {
                 </div>
                 <div className="col-md-3">
                   <div className="menu-entry">
-                    <img style={{ width: "300px" }} src={menu4} alt={menu4} />
+                    <img style={{ width: "100%" }} src={menu4} alt={menu4} />
                     <div className="text text-center pt-4">
                       <h3>
                         <a
@@ -596,9 +597,9 @@ const HomePage = () => {
                             textDecoration: "none",
                             color: "#FFFFFFB3",
                           }}
-                          href="#"
+                          href="/list"
                         >
-                          COFFEE CAPUCCINO
+                          FRAPPE
                         </a>
                       </h3>
                       <p
