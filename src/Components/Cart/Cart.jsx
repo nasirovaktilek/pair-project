@@ -70,7 +70,7 @@ const Cart = () => {
                       sx={{
                         width: "200px",
                         height: "200px",
-                        margin: "100px 30px",
+                        margin: "40px 30px",
                         borderRadius: "10px",
                       }}
                       component="img"

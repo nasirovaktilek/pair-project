@@ -35,10 +35,10 @@ const HomePage = () => {
                 alt={carouselImage1}
               />
               <Carousel.Caption
-                style={{
+                sx={{
                   paddingBottom: "200px",
                   width: "700px",
-                  margin: "20px auto",
+                  margin: "10px auto",
                 }}
               >
                 <p
@@ -95,10 +95,10 @@ const HomePage = () => {
                 alt={carouselImage2}
               />
               <Carousel.Caption
-                style={{
+                sx={{
                   paddingBottom: "200px",
                   width: "700px",
-                  margin: "20px auto",
+                  margin: "10px auto",
                 }}
               >
                 <p
@@ -155,10 +155,10 @@ const HomePage = () => {
                 alt={carouselImage3}
               />
               <Carousel.Caption
-                style={{
+                sx={{
                   paddingBottom: "200px",
                   width: "700px",
-                  margin: "20px auto",
+                  margin: "10px auto",
                 }}
               >
                 <p
