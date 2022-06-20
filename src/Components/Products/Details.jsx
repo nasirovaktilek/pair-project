@@ -12,7 +12,7 @@ import { authContext } from "../../Context/AuthContext";
 const ProductDetails = () => {
   let { id } = useParams();
   const { deleteProduct } = useContext(productContext);
-  const { user } = React.useContext(authContext)
+  const { user } = React.useContext(authContext);
   const { getProductsDetails, productDetails } = useContext(productContext);
 
   useEffect(() => {
@@ -25,7 +25,8 @@ const ProductDetails = () => {
       style={{
         paddingTop: "10%",
         paddingBottom: "10%",
-        backgroundColor: "#C49B63",
+        // backgroundColor: "#C49B63",
+        backgroundColor: "#1e1c1c",
       }}
     >
       <Container>
@@ -88,7 +89,15 @@ const ProductDetails = () => {
               // color="success"
               startIcon={<AddShoppingCartIcon />}
               fullWidth={true}
-              sx={{ mt: "20px", height: "50px", backgroundColor: "#1e1c1c" }}
+              sx={{
+                color: "#808080",
+                marginTop: "20px",
+                height: "50px",
+                // borderColor: "#808080",
+              }}
+              className="btn"
+              size="medium"
+              variant="outlined"
             >
               Add To Cart
             </Button>
