@@ -46,6 +46,8 @@ const ProductDetails = () => {
                 fontWeight: 700,
                 letterSpacing: 2,
                 fontSize: "30px",
+                color: "#808080",
+                textAlign: "center",
               }}
             >
               {productDetails.name}
@@ -53,47 +55,40 @@ const ProductDetails = () => {
             {/* <Typography variant="body2" gutterBottom>
               {productDetails.description}
             </Typography> */}
+            <Typography
+              variant="h4"
+              component="div"
+              sx={{
+                color: "#808080",
+                fontWeight: 700,
+                letterSpacing: 2,
+                textAlign: "center",
+              }}
+            >
+              {productDetails.price} $
+            </Typography>
 
             <Box
               component="div"
               sx={{
                 p: 2,
-                border: "1px dashed grey",
+
                 display: "flex",
                 alignItems: "center",
                 mt: "20px",
               }}
-            >
-              <Typography
-                variant="h5"
-                component="div"
-                sx={{
-                  fontWeight: 300,
-                  // letterSpacing: 2,
-                  // textDecoration: "line-through",
-                  marginRight: "20px",
-                }}
-              >
-                {productDetails.price} с.
-              </Typography>
-              <Typography
-                variant="h4"
-                component="div"
-                sx={{ fontWeight: 700, letterSpacing: 2 }}
-              >
-                {productDetails.price} $
-              </Typography>
-            </Box>
+            ></Box>
             <Button
               variant="contained"
               // color="success"
               startIcon={<AddShoppingCartIcon />}
               fullWidth={true}
               sx={{
-                color: "#808080",
-                marginTop: "20px",
+                mt: "20px",
+                color: "white",
                 height: "50px",
-                // borderColor: "#808080",
+                backgroundColor: "rgb(197, 151, 77)",
+                borderColor: "white",
               }}
               className="btn"
               size="medium"
@@ -105,15 +100,16 @@ const ProductDetails = () => {
             <NavLink to={`/edit/${productDetails.id}`}>
               <Button
                 variant="contained"
-                // color="warning"
                 startIcon={<EditIcon />}
                 fullWidth={true}
+                variant="outlined"
                 sx={{
-                  mt: "20px",
+                  color: "#808080",
+                  marginTop: "20px",
                   height: "50px",
-                  width: "180px",
-                  backgroundColor: "rgb(197, 151, 77)",
-                  borderColor: "red",
+
+                  width: "49%",
+                  borderColor: "#808080",
                 }}
               >
                 Edit
@@ -121,15 +117,17 @@ const ProductDetails = () => {
               <Button
                 onClick={() => deleteProduct(productDetails.id)}
                 variant="contained"
-                // color="error"
                 startIcon={<DeleteForeverIcon />}
                 fullWidth={true}
+                variant="outlined"
                 sx={{
-                  mt: "20px",
+                  color: "#808080",
+                  marginTop: "20px",
                   height: "50px",
-                  width: "180px",
+                  width: "49%",
+
+                  borderColor: "#808080",
                   marginLeft: "10px",
-                  backgroundColor: "rgb(197, 151, 77)",
                 }}
               >
                 Delete

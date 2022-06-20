@@ -1,12 +1,13 @@
-import { Button, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { productContext } from "../../../Context/ProductContext";
 import SaveIcon from "@mui/icons-material/Save";
 import Image from "../../../assets/images/bg_1.jpg";
+import "./EditProduct.css";
 
 const EditProduct = () => {
-  console.log("Edit page");
+  // console.log("Edit page");
   const { productDetails, getProductsDetails, editProduct } =
     useContext(productContext);
 
@@ -35,12 +36,13 @@ const EditProduct = () => {
   };
 
   return (
-    <div
-      style={{
-        height: "100vh",
+    <Box
+      sx={{
+        margin: "0 auto",
+        height: "1000px",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        // alignItems: "center",
         backgroundImage: `url(${Image})`,
       }}
     >
@@ -51,76 +53,93 @@ const EditProduct = () => {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
-          width: "85vh",
+          width: "50%",
           borderRadius: "7px",
-          border: "2px solid white",
         }}
       >
         <TextField
+          sx={{ width: "100%" }}
+          label="Name"
+          // className="inp1 m-1"
           id="outlined-basic"
-          label="name"
           variant="outlined"
           value={inputValues.name}
           name="name"
           onChange={(e) => handleChange(e)}
-          InputProps={{ style: { backgroundColor: "#cc9900" } }}
+          InputProps={{ style: { backgroundColor: "#7279754c" } }}
         />
         <br />
         <TextField
+          sx={{ width: "100%" }}
           id="outlined-basic"
-          label="type"
+          label="Type"
           variant="outlined"
           value={inputValues.type}
           name="type"
           onChange={(e) => handleChange(e)}
-          InputProps={{ style: { backgroundColor: "#cc9900" } }}
+          InputProps={{ style: { backgroundColor: "#7279754c" } }}
         />
         <br />
         <TextField
+          sx={{ width: "100%" }}
           id="outlined-basic"
-          label="description"
+          label="Description"
           variant="outlined"
           value={inputValues.description}
           name="description"
           onChange={(e) => handleChange(e)}
-          InputProps={{ style: { backgroundColor: "#cc9900" } }}
+          InputProps={{ style: { backgroundColor: "#7279754c" } }}
         />
         <br />
         <TextField
+          sx={{ width: "100%" }}
           id="outlined-basic"
-          label="price"
+          label="Price"
           variant="outlined"
           value={inputValues.price}
           name="price"
           onChange={(e) => handleChange(e)}
-          InputProps={{ style: { backgroundColor: "#cc9900" } }}
+          InputProps={{ style: { backgroundColor: "#7279754c" } }}
         />
         <br />
         <TextField
+          sx={{ width: "100%" }}
           id="outlined-basic"
-          label="image"
+          label="Image"
           variant="outlined"
           value={inputValues.image}
           name="image"
           onChange={(e) => handleChange(e)}
-          InputProps={{ style: { backgroundColor: "#cc9900" } }}
+          InputProps={{ style: { backgroundColor: "#7279754c" } }}
         />
 
         <Button
-          type="submit"
-          variant="contained"
-          color="success"
-          startIcon={<SaveIcon />}
-          fullWidth={true}
           sx={{
+            margin: "20px auto",
+            backgroundColor: "rgba(196, 159, 72, 0.791)",
             height: "45px",
             width: "120px",
           }}
+          type="button"
+          variant="contained"
+          className="btnSave"
+          startIcon={<SaveIcon />}
+          fullWidth={true}
+
+          // type="submit"
+          // variant="contained"
+          // color="success"
+          // startIcon={<SaveIcon />}
+          // fullWidth={true}
+          // sx={{
+          //   height: "45px",
+          //   width: "120px",
+          // }}
         >
           Save
         </Button>
       </form>
-    </div>
+    </Box>
   );
 };
 

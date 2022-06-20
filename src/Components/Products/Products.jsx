@@ -66,16 +66,6 @@ const Products = () => {
 
   return (
     <Box className="products">
-      {/* <Box
-        sx={{
-          // margin: "70px 600px",
-          fontSize: "50px",
-          fontFamily: "Great Vibes",
-          color: "#c49b63",
-        }}
-      >
-        <h2>MENU</h2>
-      </Box> */}
       <div className="main_container">
         <Box className="filter" sx={{ width: "100%" }}>
           <Filter type={type} setType={setType} />
@@ -89,10 +79,10 @@ const Products = () => {
                   sx={{
                     borderRadius: "20px",
                     // width: "320px",
-                    height: "530px ",
+                    height: "530px",
                     marginBottom: "50px",
                     backgroundColor: "#1e1c1c6b",
-                    margin: "30px 30px",
+                    margin: "30px 20px",
                   }}
                 >
                   <Box
@@ -180,7 +170,7 @@ const Products = () => {
                         <Button
                           sx={{
                             color: "#808080",
-                            
+
                             borderColor: "#808080",
                           }}
                           className="btn"
