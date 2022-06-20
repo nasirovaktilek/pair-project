@@ -19,11 +19,7 @@ const MainRoutes = () => {
       <Route path="/details/:id" element={<ProductDetails />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/edit/:id" element={<EditProduct />} />
-<<<<<<< HEAD
-      {/* <Route path="/payment" element={<Payment />} /> */}
-=======
       <Route path="/payment" element={<Payment />} />
->>>>>>> af461e7567f826c257643895d78cf1f9be38f205
     </Routes>
   );
 };
