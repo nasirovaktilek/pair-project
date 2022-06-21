@@ -1,48 +1,54 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import API_AUTH from "../../Config";
-
+import { authContext } from "../../Context/AuthContext";
 
 const Login = () => {
-  
-  const [inpEmail, setEmail] = useState("");
-  const [inpPassword, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
-  const notify = (error) => {
-    toast.error(Object.values(error).toString().replace(/,/gi, ""), {
-      icon: false,
-      theme: "dark",
-    });
-  };
+  const { login } = useContext(authContext);
 
-  const registerUser = async (newUser) => {
-    const config = {
-      headers: { "Content-Type": "multipart/form-data" },
-    };
-    try {
-      const res = await axios.post(`${API_AUTH}login/`, newUser, config);
-      const { access, refresh } = res.data;
-      localStorage.setItem("access", access);
-      localStorage.setItem("refresh", refresh);
-      navigate("/check-token");
-    } catch (error) {
-      notify(error.response.data);
-    }
-  };
+  // const navigate = useNavigate();
 
-  function handleClick() {
-    const form_data = new FormData();
-    if (!inpEmail) notify("Enter email");
-    else if (!inpPassword) notify("Enter password");
-    else {
-      form_data.append("email", inpEmail);
-      form_data.append("password", inpPassword);
-      registerUser(form_data);
-    }
+  // const notify = (error) => {
+  //   toast.error(Object.values(error).toString().replace(/,/gi, ""), {
+  //     icon: false,
+  //     theme: "dark",
+  //   });
+  // };
+
+  // const registerUser = async (newUser) => {
+  //   const config = {
+  //     headers: { "Content-Type": "multipart/form-data" },
+  //   };
+  //   try {
+  //     const res = await axios.post(`${API_AUTH}login/`, newUser, config);
+  //     const { access, refresh } = res.data;
+  //     localStorage.setItem("access", access);
+  //     localStorage.setItem("refresh", refresh);
+  //     navigate("/check-token");
+  //   } catch (error) {
+  //     notify(error.response.data);
+  //   }
+  // };
+
+  // function handleClick() {
+  //   const form_data = new FormData();
+  //   if (!email) notify("Enter email");
+  //   else if (!password) notify("Enter password");
+  //   else {
+  //     form_data.append("email", email);
+  //     form_data.append("password", password);
+  //     registerUser(form_data);
+  //   }
+  // }
+
+  function handleLogin(email, password) {
+    login(email, password);
   }
 
   return (
@@ -79,7 +85,7 @@ const Login = () => {
             />
           </div>
           <button
-            onClick={handleClick}
+            onClick={() => handleLogin(email, password)}
             className="btn btn-light"
             style={{ width: "100%" }}
           >
