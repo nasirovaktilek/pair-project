@@ -1,2 +1,2 @@
-const API_AUTH = "http://18.134.99.184/account/";
-export default API_AUTH;
+let API = "http://unitedstates3.herokuapp.com/api/v1";
+export default API;

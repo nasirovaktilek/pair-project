@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
 import PaidIcon from "@mui/icons-material/Paid";
 import { authContext } from "../../Context/AuthContext";
+import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -67,8 +68,8 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
-  const {user} = React.useContext(authContext);
-  console.log(user);
+  const { user } = React.useContext(authContext);
+  // console.log(user);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -96,6 +97,10 @@ export default function PrimarySearchAppBar() {
 
   const navigateToLoginPage = () => {
     navigate("/login");
+  };
+
+  const navigateToRegistrationPage = () => {
+    navigate("/register");
   };
 
   const navigateToList = () => {
@@ -253,16 +258,6 @@ export default function PrimarySearchAppBar() {
               </Badge>
             </IconButton>
 
-            {/* <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge color="error">
-                <PaidIcon onClick={() => navigateToPay()} />
-              </Badge>
-            </IconButton> */}
-
             <IconButton
               size="large"
               edge="end"
@@ -274,31 +269,20 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton>
-          </Box>
 
-          {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              onClick={() => navigateToRegistrationPage()}
               color="inherit"
             >
-              <MoreIcon />
+              <AppRegistrationIcon />
             </IconButton>
-          </Box> */}
+          </Box>
 
-          {/* <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              sx={{ width: "130px" }}
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search> */}
           <LiveSearch />
         </Toolbar>
       </AppBar>
