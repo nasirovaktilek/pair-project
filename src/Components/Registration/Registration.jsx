@@ -132,7 +132,7 @@ const Register = () => {
             />
           </div>
 
-<button
+          <button
             onClick={handleClick}
             className="btn btn-light"
             style={{ width: "100%" }}

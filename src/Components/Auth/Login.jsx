@@ -5,9 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import API_AUTH from "../../Config";
 
-
 const Login = () => {
-  
   const [inpEmail, setEmail] = useState("");
   const [inpPassword, setPassword] = useState("");
 
