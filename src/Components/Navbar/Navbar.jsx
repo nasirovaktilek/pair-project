@@ -9,7 +9,6 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -19,7 +18,7 @@ import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlin
 import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
-import PaidIcon from "@mui/icons-material/Paid";
+import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import { authContext } from "../../Context/AuthContext";
 
 const Search = styled("div")(({ theme }) => ({
@@ -67,7 +66,7 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
-  const {user} = React.useContext(authContext);
+  const { user } = React.useContext(authContext);
   // console.log(user);
 
   const isMenuOpen = Boolean(anchorEl);
@@ -96,6 +95,10 @@ export default function PrimarySearchAppBar() {
 
   const navigateToLoginPage = () => {
     navigate("/login");
+  };
+
+  const navigateToRegistrationPage = () => {
+    navigate("/register");
   };
 
   const navigateToList = () => {
@@ -253,16 +256,6 @@ export default function PrimarySearchAppBar() {
               </Badge>
             </IconButton>
 
-            {/* <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge color="error">
-                <PaidIcon onClick={() => navigateToPay()} />
-              </Badge>
-            </IconButton> */}
-
             <IconButton
               size="large"
               edge="end"
@@ -274,31 +267,20 @@ export default function PrimarySearchAppBar() {
             >
               <AccountCircle />
             </IconButton>
-          </Box>
 
-          {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
               aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
+              onClick={() => navigateToRegistrationPage()}
               color="inherit"
             >
-              <MoreIcon />
+              <AppRegistrationIcon />
             </IconButton>
-          </Box> */}
+          </Box>
 
-          {/* <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              sx={{ width: "130px" }}
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search> */}
           <LiveSearch />
         </Toolbar>
       </AppBar>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { API } from "../Config";
 
@@ -23,6 +23,8 @@ const reducer = (state = INIT_STATE, action) => {
 
 const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(1);
 
   const location = useLocation();
   // console.log(location.search);
@@ -32,9 +34,14 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getProducts = async () => {
-    const { data } = await axios(`${API}${location.search}`);
+    // const { data } = await axios(`${API}${location.search}`);
+    const { data } = await axios(`${API}/?page=${page}`);
+
+    setCount(Math.ceil(data.count / 6));
+
     dispatch({
       type: "GET_PRODUCTS",
+      // type: ACTIONS.GET_PRODUCTS,
       payload: data,
     });
   };
@@ -62,6 +69,9 @@ const ProductContextProvider = ({ children }) => {
       value={{
         products: state.products,
         productDetails: state.productDetails,
+        page,
+        count,
+        setPage,
         addProduct,
         getProducts,
         getProductsDetails,
