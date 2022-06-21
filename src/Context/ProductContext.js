@@ -1,11 +1,9 @@
 import axios from "axios";
 import React, { createContext, useReducer } from "react";
 import { useLocation } from "react-router-dom";
+import { API } from "../Config";
 
 export const productContext = createContext();
-
-const API = "http://localhost:8000/products";
-// const API = "http://unitedstates3.herokuapp.com/api/v1/products";
 
 const INIT_STATE = {
   products: [],
