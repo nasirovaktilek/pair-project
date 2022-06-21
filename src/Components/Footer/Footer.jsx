@@ -5,6 +5,9 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnSharpIcon from "@mui/icons-material/LocationOnSharp";
 import PhoneEnabledSharpIcon from "@mui/icons-material/PhoneEnabledSharp";
 import MailSharpIcon from "@mui/icons-material/MailSharp";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 const Footer = () => {
   return (
@@ -36,6 +39,7 @@ const Footer = () => {
                     fontFamily: "Poppins",
                     fontSize: " 16px",
                     lineHeight: "35px",
+                    width: "70%",
                   }}
                 >
                   Far far away, behind the word mountains, far from the
@@ -101,29 +105,13 @@ const Footer = () => {
                           marginLeft: "20px",
                           textDecoration: "none",
                           fontSize: "15px",
+                          width: "50%",
                         }}
                         href="#"
                       >
                         Even the all-powerful Pointing has no control about
                       </a>
                     </h3>
-                    {/* <div className="meta">
-                      <div>
-                        <a href="#">
-                          <span className="icon-calendar"></span> Sept 15, 2018
-                        </a>
-                      </div>
-                      <div>
-                        <a href="#">
-                          <span className="icon-person"></span> Admin
-                        </a>
-                      </div>
-                      <div>
-                        <a href="#">
-                          <span className="icon-chat"></span> 19
-                        </a>
-                      </div>
-                    </div> */}
                   </div>
                 </div>
                 <div className="block-21 mb-4 d-flex">
@@ -269,13 +257,23 @@ const Footer = () => {
               </div>
             </div>
           </div>
+
           <div className="row">
+            <div style={{ paddingLeft: "230px" }}>
+              <InstagramIcon sx={{ color: "white", fontSize: "50px" }} />
+              <TwitterIcon
+                sx={{ color: "white", marginLeft: "20px", fontSize: "50px" }}
+              />
+              <FacebookIcon
+                sx={{ color: "white", marginLeft: "20px", fontSize: "50px" }}
+              />
+            </div>
             <div style={{ heigth: "50px" }} className="col-md-12 text-center">
               <p
                 style={{
                   color: "#FFFFFFB3",
                   fontFamily: "Poppins",
-                  fontSize: " 16px",
+                  fontSize: "16px",
                 }}
               >
                 MADE WITH <FavoriteIcon /> BY GROUP

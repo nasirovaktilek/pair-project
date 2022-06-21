@@ -29,15 +29,17 @@ const ProductDetails = () => {
         backgroundColor: "#1e1c1c",
       }}
     >
-      <Container>
-        <Grid container spacing={2}>
+      <Container sx={{ margin: "20px auto" }}>
+        <Grid container spacing={2} sx={{ display: "flex" }}>
           <img
-            width={550}
             src={productDetails.image}
             alt={productDetails.name}
-            style={{ borderRadius: "13px" }}
+            style={{
+              borderRadius: "13px",
+              width: "50%",
+            }}
           />
-          <Grid item xs={6} sx={{ margin: "20px 10px", alignItems: "center" }}>
+          <Grid item xs={6} sx={{ alignItems: "center" }}>
             <Typography
               variant="h3"
               gutterBottom
@@ -79,8 +81,6 @@ const ProductDetails = () => {
               }}
             ></Box>
             <Button
-              variant="contained"
-              // color="success"
               startIcon={<AddShoppingCartIcon />}
               fullWidth={true}
               sx={{
@@ -99,7 +99,6 @@ const ProductDetails = () => {
             {/* {user.email === "admin@gmail.com" ? (  */}
             <NavLink to={`/edit/${productDetails.id}`}>
               <Button
-                variant="contained"
                 startIcon={<EditIcon />}
                 fullWidth={true}
                 variant="outlined"
@@ -116,7 +115,6 @@ const ProductDetails = () => {
               </Button>
               <Button
                 onClick={() => deleteProduct(productDetails.id)}
-                variant="contained"
                 startIcon={<DeleteForeverIcon />}
                 fullWidth={true}
                 variant="outlined"
