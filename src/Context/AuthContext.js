@@ -1,102 +1,77 @@
+import React, { useReducer } from "react";
 import axios from "axios";
-import React, { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import API_AUTH from "../Config";
+export const authContext = React.createContext();
 
-export const authContext = createContext();
+const INIT_STATE = {
+  is_auth: false,
+};
 
-const API = "http://18.134.99.184";
-
-export const useAuth = () => {
-  return useContext(authContext);
+const reducer = (state = INIT_STATE, action) => {
+  switch (action.type) {
+    case "CHECK_AUTH":
+      return { ...state, is_auth: action.payload };
+    default:
+      return state;
+  }
 };
 
 const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = useState("");
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  const register = async (user) => {
+  let flag = true;
+
+  const checkToken = async () => {
+    let access = localStorage.getItem("access");
+    if (!access) {
+      dispatch({
+        type: "CHECK_AUTH",
+        payload: false,
+      });
+    }
     const config = {
-      headers: { "Content-Type": "multipart/form-data" },
+      headers: {
+        Authorization: `Bearer ${access}`,
+      },
     };
-    let formData = new FormData();
-    formData.append("username", user.email);
-    formData.append("password", user.password);
-
     try {
-      const res = await axios.post(`${API}register/`, formData, config);
-      navigate("/login");
-    } catch (e) {
-      console.log(e);
-      setError("error occured");
+      await axios.get(`${API_AUTH}token/refresh/`, config);
+      dispatch({
+        type: "CHECK_AUTH",
+        payload: true,
+      });
+    } catch (error) {
+      if (flag) {
+        flag = false;
+        checkToken();
+      } else {
+        dispatch({
+          type: "CHECK_AUTH",
+          payload: false,
+        });
+      }
     }
   };
 
-  async function login(username, password) {
-    console.log(username, password);
+  const refreshToken = async () => {
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
-    let formData = new FormData();
-    formData.append("username", username);
-    formData.append("password", password);
-
-    try {
-      let res = await axios.post(`${API}api/token/`, formData, config);
-      localStorage.setItem("token", JSON.stringify(res.data));
-      localStorage.setItem("username", username);
-      setUser(username);
-      navigate("/");
-    } catch (error) {
-      setError("error occured");
-    }
-  }
-
-  async function checkAuth() {
-    let token = JSON.parse(localStorage.getItem("token"));
-    try {
-      const Authorization = `Bearer ${token.access}`;
-
-      let res = await axios.post(
-        `${API}api/token/refresh/`,
-        {
-          refresh: token.refresh,
-        },
-        {
-          headers: { Authorization },
-        }
-      );
-
-      localStorage.setItem(
-        "token",
-        JSON.stringify({
-          refresh: token.refresh,
-          access: res.data.access,
-        })
-      );
-
-      let userName = localStorage.getItem("username");
-      setUser(userName);
-    } catch (error) {
-      logout();
-    }
-  }
-
-  function logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    setUser("");
-  }
+    let refresh = localStorage.getItem("refresh");
+    const res = await axios.post(
+      `${API_AUTH}token/refresh/`,
+      { refresh },
+      config
+    );
+    const { access } = res.data;
+    localStorage.setItem("access", access);
+  };
 
   return (
     <authContext.Provider
       value={{
-        register,
-        login,
-        user,
-        error,
-        checkAuth,
-        logout,
+        is_auth: state.is_auth,
+        // checkToken,
       }}
     >
       {children}

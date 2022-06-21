@@ -10,7 +10,7 @@ const Register = () => {
   const [inpPassword, setPassword] = useState("");
   const [inpPasswordConfirm, setPasswordConfirm] = useState("");
   const [inpName, setName] = useState("");
-  const [inpLastName, setLastName] = useState("");
+  // const [inpLastName, setLastName] = useState("");
 
   const navigate = useNavigate();
   const notify = (error) => {
@@ -57,13 +57,13 @@ const Register = () => {
     else if (!inpPassword) notify("Enter password");
     else if (!inpPasswordConfirm) notify("Enter password");
     else if (!inpName) notify("Enter name");
-    else if (!inpLastName) notify("Enter last name");
+    // else if (!inpLastName) notify("Enter last name");
     else {
       form_data.append("email", inpEmail);
       form_data.append("password", inpPassword);
       form_data.append("password_confirm", inpPasswordConfirm);
       form_data.append("name", inpName);
-      form_data.append("last_name", inpLastName);
+      // form_data.append("last_name", inpLastName);
       registerUser(form_data);
     }
   }
@@ -121,7 +121,7 @@ const Register = () => {
               placeholder="*Name"
             />
           </div>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <input
               type="last_name"
               className="form-control"
@@ -130,7 +130,7 @@ const Register = () => {
               key="last_name"
               placeholder="*Last Name"
             />
-          </div>
+          </div> */}
 
 <button
             onClick={handleClick}
