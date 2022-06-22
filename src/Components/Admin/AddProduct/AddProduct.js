@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const initObj = {
   name: "",
-  type: "",
+  category: "",
   description: "",
   price: "",
   image: "",

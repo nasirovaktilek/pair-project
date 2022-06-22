@@ -4,7 +4,8 @@ import { useLocation } from "react-router-dom";
 // import API from "../Config";
 
 export const productContext = createContext();
-let API = "http://localhost:8000/products";
+// let API = "http://localhost:8000/products";
+let API = "http://unitedstates3.herokuapp.com/api/v1";
 
 const INIT_STATE = {
   products: [],
@@ -31,7 +32,7 @@ const ProductContextProvider = ({ children }) => {
   // console.log(location.search);
 
   const addProduct = async (newProduct) => {
-    await axios.post(API, newProduct);
+    await axios.post(`${API}/products/`, newProduct);
   };
 
   const getProducts = async () => {
