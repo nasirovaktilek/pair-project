@@ -66,8 +66,7 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
-  const { user } = React.useContext(authContext);
-  // console.log(user);
+  const { user, email } = React.useContext(authContext);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -245,7 +244,6 @@ export default function PrimarySearchAppBar() {
                 <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
               </Badge>
             </IconButton>
-
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -277,10 +275,9 @@ export default function PrimarySearchAppBar() {
               onClick={() => navigateToRegistrationPage()}
               color="inherit"
             >
-              <AppRegistrationIcon />
+              <AppRegistrationIcon/>
             </IconButton>
           </Box>
-
           <LiveSearch />
         </Toolbar>
       </AppBar>
