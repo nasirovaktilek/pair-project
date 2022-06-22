@@ -9,7 +9,6 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -19,9 +18,8 @@ import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlin
 import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
-import PaidIcon from "@mui/icons-material/Paid";
-import { authContext } from "../../Context/AuthContext";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import { authContext } from "../../Context/AuthContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

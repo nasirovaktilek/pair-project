@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 export const authContext = createContext();
 
 let API = "http://unitedstates3.herokuapp.com/api/v1";
-// const API = "http://localhost:8000/users";
-// const API = "http://18.134.99.184";
 
 export const useAuth = () => {
   return useContext(authContext);
@@ -18,16 +16,15 @@ const AuthContextProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  const register = async (email, password, passwordConfirm, name) => {
+  const register = async (email, password, passwordConfirm) => {
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
+    console.log(email, password, passwordConfirm, "from context");
     let formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password_confirm", passwordConfirm);
-    formData.append("name", name);
-    // console.log(email, password, name);
 
     try {
       const res = await axios.post(
