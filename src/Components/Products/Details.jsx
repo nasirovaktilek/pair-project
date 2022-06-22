@@ -12,7 +12,7 @@ import { authContext } from "../../Context/AuthContext";
 const ProductDetails = () => {
   let { id } = useParams();
   const { deleteProduct } = useContext(productContext);
-  const { user } = React.useContext(authContext);
+  const { user } = useContext(authContext);
   const { getProductsDetails, productDetails } = useContext(productContext);
 
   useEffect(() => {
@@ -96,7 +96,7 @@ const ProductDetails = () => {
             >
               Add To Cart
             </Button>
-            {/* {user.email === "admin@gmail.com" ? (  */}
+            {/* {user === "admin@admin.com" ? (  */}
             <NavLink to={`/edit/${productDetails.id}`}>
               <Button
                 startIcon={<EditIcon />}
@@ -131,7 +131,7 @@ const ProductDetails = () => {
                 Delete
               </Button>
             </NavLink>
-            {/* ) : null } */}
+           {/* ) : null }  */}
 
             <Alert
               severity="info"

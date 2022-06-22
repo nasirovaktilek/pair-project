@@ -66,8 +66,7 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
-  const { user } = React.useContext(authContext);
-  // console.log(user);
+  const { user, email } = React.useContext(authContext);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -87,6 +86,10 @@ export default function PrimarySearchAppBar() {
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const navigateToHomePage = () => {
+    navigate("/");
   };
 
   const navigateToAdd = () => {
@@ -186,7 +189,6 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -202,7 +204,7 @@ export default function PrimarySearchAppBar() {
           </IconButton>
 
           <Box>
-            <a
+            <IconButton
               style={{
                 color: "white",
                 fontFamily: "Josefin Sans",
@@ -211,10 +213,10 @@ export default function PrimarySearchAppBar() {
                 marginTop: "5px",
               }}
               className="navbar-brand"
-              href="/"
+              onClick={() => navigateToHomePage()}
             >
               COFFEE
-            </a>
+            </IconButton>
           </Box>
 
           <Box>
@@ -281,7 +283,6 @@ export default function PrimarySearchAppBar() {
               <AppRegistrationIcon sx={{ ml: "10px" }} />
             </IconButton>
           </Box>
-
           <LiveSearch />
         </Toolbar>
       </AppBar>
