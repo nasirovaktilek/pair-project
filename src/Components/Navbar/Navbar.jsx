@@ -88,6 +88,10 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const navigateToHomePage = () => {
+    navigate("/");
+  };
+
   const navigateToAdd = () => {
     navigate("/add");
   };
@@ -200,7 +204,7 @@ export default function PrimarySearchAppBar() {
           </IconButton>
 
           <Box>
-            <a
+            <IconButton
               style={{
                 color: "white",
                 fontFamily: "Josefin Sans",
@@ -209,10 +213,10 @@ export default function PrimarySearchAppBar() {
                 marginTop: "5px",
               }}
               className="navbar-brand"
-              href="/"
+              onClick={()=>navigateToHomePage()}
             >
               COFFEE
-            </a>
+            </IconButton>
           </Box>
 
           <Box>
