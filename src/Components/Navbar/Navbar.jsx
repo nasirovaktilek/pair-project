@@ -279,7 +279,7 @@ export default function PrimarySearchAppBar() {
               onClick={() => navigateToRegistrationPage()}
               color="inherit"
             >
-              <AppRegistrationIcon />
+              <AppRegistrationIcon sx={{ ml: "10px" }} />
             </IconButton>
           </Box>
 

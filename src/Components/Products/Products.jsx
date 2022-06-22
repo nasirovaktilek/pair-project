@@ -5,18 +5,18 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, Button, CardActions, Stack } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
-import RestoreFromTrashIcon from "@mui/icons-material/RestoreFromTrash";
+// import RestoreFromTrashIcon from "@mui/icons-material/RestoreFromTrash";
 import { Link, NavLink, useSearchParams } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "./Products.css";
-import ReactPaginate from "react-paginate";
+// import ReactPaginate from "react-paginate";
 import { productContext } from "../../Context/ProductContext";
 import Filter from "../Filter/Filter";
 import { cartContext } from "../../Context/CartContext";
+import usePagination from "./Pagination";
 
 const Products = () => {
-  const { getProducts, products, deleteProduct, page, count, setPage } =
-    useContext(productContext);
+  const { getProducts, products, deleteProduct } = useContext(productContext);
 
   const { addProductToCart } = useContext(cartContext);
 
@@ -40,12 +40,14 @@ const Products = () => {
   useEffect(() => {
     getProducts();
   }, []);
-  useEffect(() => {
-    getProducts();
-  }, [page, searchParams]);
-  const handleChange = (e, p) => {
-    setPage(p);
-  };
+
+  // useEffect(() => {
+  //   getProducts();
+  // }, [page, searchParams]);
+
+  // const handleChange = (e, p) => {
+  //   setPage(p);
+  // };
 
   useEffect(() => {
     if (searchParams.get("type")) {
@@ -63,6 +65,21 @@ const Products = () => {
       setSearchParams(paramsWithType());
     }
   }, [type, searchParams]);
+
+  //!!!!!!!!!!
+
+  let [page, setPage] = useState(1);
+  const PER_PAGE = 5;
+
+  const count = Math.ceil(products.length / PER_PAGE);
+  const _DATA = usePagination(products, PER_PAGE);
+
+  const handleChange = (e, p) => {
+    setPage(p);
+    _DATA.jump(p);
+    // console.log(p);
+  };
+  //!!!!!!!!!!
 
   // ! Paginate======================
   // const [pageNumber, setPageNumber] = useState(0);
@@ -93,7 +110,7 @@ const Products = () => {
                     className="card"
                     sx={{
                       borderRadius: "20px",
-                      // width: "320px",
+                      width: "320px",
                       height: "530px",
                       marginBottom: "50px",
                       backgroundColor: "#1e1c1c6b",
@@ -195,7 +212,7 @@ const Products = () => {
         </div>
       </div>
 
-      <Box display="flex" justifyContent="center" my={3}>
+      {/* <Box display="flex" justifyContent="center" my={3}>
         <Pagination
           sx={{
             bgcolor: "red",
@@ -205,19 +222,38 @@ const Products = () => {
           page={page}
           onChange={handleChange}
         />
-      </Box>
+      </Box> */}
 
-      {/* <Box> */}
-      {/* <Stack spacing={2}>
+      {/* <Box display="flex" justifyContent="center" my={3}>
+        <Stack spacing={2}>
+          <Pagination
+            sx={{
+              bgcolor: "white",
+            }}
+            count={count}
+            page={page}
+            onChange={() => handleChange()}
+            variant="outlined"
+            shape="rounded"
+          />
+        </Stack>
+      </Box> */}
+
+      <Box>
+        {" "}
         <Pagination
           count={count}
+          size="large"
           page={page}
-          onChange={handleChange}
           variant="outlined"
           shape="rounded"
+          onChange={handleChange}
+          sx={{
+            bgcolor: "white",
+          }}
         />
-      </Stack> */}
-      {/* </Box> */}
+      </Box>
+
       {/* 
       <ReactPaginate
         previousLabel={"Назад"}

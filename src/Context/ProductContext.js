@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { createContext, useReducer, useState } from "react";
 import { useLocation } from "react-router-dom";
+// import API from "../Config";
 
 export const productContext = createContext();
 
@@ -38,7 +39,7 @@ const ProductContextProvider = ({ children }) => {
     // const { data } = await axios(`${API}${location.search}`);
     const { data } = await axios(`${API}/?page=${page}`);
 
-    setCount(Math.ceil(data.count / 6));
+    // setCount(Math.ceil(data.count / 6));
 
     dispatch({
       type: "GET_PRODUCTS",
@@ -73,6 +74,7 @@ const ProductContextProvider = ({ children }) => {
         page,
         count,
         setPage,
+        setCount,
         addProduct,
         getProducts,
         getProductsDetails,
