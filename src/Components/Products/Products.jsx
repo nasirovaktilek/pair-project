@@ -35,7 +35,7 @@ const Products = () => {
       type: type,
       _page: page,
       _limit: PER_PAGE,
-      q: searchParams.get("q"),
+      q: searchParams.get("type"),
     };
   };
 
@@ -51,9 +51,9 @@ const Products = () => {
     getProducts();
     getProductsLength();
   }, []);
-
+  console.log(searchParams.get("q"));
   useEffect(() => {
-    if (searchParams.get("type")) {
+    if (searchParams.get("q")) {
       setSearchParams(paramsWithType());
     } else {
       setSearchParams(paramsNoType());
@@ -77,7 +77,7 @@ const Products = () => {
 
   const count = Math.ceil(productsLength / PER_PAGE);
   const _DATA = usePagination(products, PER_PAGE);
-  console.log(products);
+  // console.log(products);
 
   const handleChange = (e, p) => {
     setPage(p);

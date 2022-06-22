@@ -68,7 +68,7 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getProductsLength = async () => {
-    const { data } = await axios(`${URL}/?page=${page}`);
+    const { data } = await axios(`${URL}`);
     dispatch({
       type: "GET_PRODUCTS_LENGTH",
       payload: data.length,
