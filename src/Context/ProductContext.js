@@ -74,7 +74,7 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getUserData = async (email) => {
-    let { data } = await axios(`${URL}/profile_client/${email}`);
+    let { data } = await axios(`${URL}/login/${email}`);
     dispatch({
       type: "GET_USER_DATA",
       payload: data,
@@ -82,12 +82,13 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const addProduct = async (newProduct) => {
+    let access = localStorage.getItem("access");
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
-    // if (access) {
-    //   config.headers.Authorization = `Bearer ${access}`;
-    // }
+    if (access) {
+      config.headers.Authorization = `Bearer ${access}`;
+    }
     await axios.post(`${URL}/products/`, newProduct, config);
     getProducts();
   };

@@ -9,7 +9,6 @@ import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -19,9 +18,8 @@ import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlin
 import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 import LiveSearch from "../LiveSearch/LiveSearch";
-import PaidIcon from "@mui/icons-material/Paid";
-import { authContext } from "../../Context/AuthContext";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import { authContext } from "../../Context/AuthContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -69,7 +67,7 @@ export default function PrimarySearchAppBar() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
   const { user } = React.useContext(authContext);
-  // console.log(user);
+  console.log(user);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -188,7 +186,7 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
+  // let user1 = "boris@gmail.com";
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -238,16 +236,17 @@ export default function PrimarySearchAppBar() {
                 onClick={() => navigateToList()}
               />
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge color="error">
-                <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
-              </Badge>
-            </IconButton>
-
+            {user === "admin@admin.com" ? (
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit"
+              >
+                <Badge color="error">
+                  <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
+                </Badge>
+              </IconButton>
+            ) : null}
             <IconButton
               size="large"
               aria-label="show 4 new mails"
