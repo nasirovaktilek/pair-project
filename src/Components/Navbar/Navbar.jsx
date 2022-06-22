@@ -185,7 +185,7 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
+  // let user1 = "boris@gmail.com";
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -235,15 +235,17 @@ export default function PrimarySearchAppBar() {
                 onClick={() => navigateToList()}
               />
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge color="error">
-                <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
-              </Badge>
-            </IconButton>
+            {user === "admin@admin.com" ? (
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit"
+              >
+                <Badge color="error">
+                  <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
+                </Badge>
+              </IconButton>
+            ) : null}
             <IconButton
               size="large"
               aria-label="show 4 new mails"
