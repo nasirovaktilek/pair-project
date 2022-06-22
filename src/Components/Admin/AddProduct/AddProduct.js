@@ -27,8 +27,7 @@ const AddProduct = () => {
     newObj.append("price", inpPrice);
     newObj.append("is_published", true);
     newObj.append("watch", 0);
-
-    // newObj.append("image", selectedFile);
+    newObj.append("image", selectedFile);
 
     const newObj2 = {
       name: inpName,
@@ -125,9 +124,9 @@ const AddProduct = () => {
           <TextField
             sx={{ width: "400px" }}
             id="outlined-basic"
+            type="file"
             label="Image url"
             variant="outlined"
-            // value={image}
             onChange={(e) => setSelectedFile(e.target.files[0])}
             name="image"
             className="inp5 m-1"

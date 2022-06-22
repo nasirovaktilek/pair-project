@@ -41,7 +41,8 @@ const ProductContextProvider = ({ children }) => {
   // console.log(location.search);
 
   const getProducts = async (id) => {
-    let { data } = await axios(`${URL}/products/`);
+    let { data } = await axios.get(`${URL}/products/`);
+    console.log(data.results);
 
     // const getProducts = async () => {
     //   // const { data } = await axios(`${API}${location.search}`);
@@ -52,13 +53,14 @@ const ProductContextProvider = ({ children }) => {
     dispatch({
       type: "GET_PRODUCTS",
       // type: ACTIONS.GET_PRODUCTS,
-      payload: data,
+      payload: data.results,
     });
     // console.log(data);
   };
 
   const getProductsDetails = async (id) => {
     let { data } = await axios(`${URL}/products/${id}`);
+
     dispatch({
       type: "GET_PRODUCTS_DETAILS",
       payload: data,
@@ -93,17 +95,30 @@ const ProductContextProvider = ({ children }) => {
     getProducts();
   };
 
+  // const deleteProduct = async (id) => {
+  // let access = localStorage.getItem("access");
+  // let config = {};
+  // if (access) {
+  //   config = {
+  //     headers: { Authorization: `Bearer ${access}` },
+  //   };
+  // }
+  //   await axios.delete(`${URL}/products/${id}/`);
+  //   getProducts();
+  // };
+  //!__________________________________________________________________;
   const deleteProduct = async (id) => {
-    // let access = localStorage.getItem("access");
-    // let config = {};
-    // if (access) {
-    //   config = {
-    //     headers: { Authorization: `Bearer ${access}` },
-    //   };
-    // }
-    await axios.delete(`${URL}/products/${id}/`);
+    let token = localStorage.getItem("access");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    await axios.delete(`${URL}/products/${id}/`, config);
     getProducts();
   };
+
+  //!_________________________________________________________________;
 
   const saveProduct = async (newProduct) => {
     // let access = localStorage.getItem("access");

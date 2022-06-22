@@ -185,7 +185,6 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-  // let user1 = "boris@gmail.com";
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">

@@ -84,7 +84,7 @@ const Products = () => {
         </Box>
         <div className="container">
           {products
-            ? products.slice().map(
+            ? products.map(
                 (
                   item //productVisited, sliceTwoIndex
                 ) => (
