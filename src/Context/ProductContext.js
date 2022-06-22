@@ -1,3 +1,4 @@
+import { ActionTypes } from "@mui/base";
 import axios from "axios";
 import React, { createContext, useReducer, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
@@ -52,7 +53,7 @@ const ProductContextProvider = ({ children }) => {
     //   payload: data,
 
     let { data } = await axios.get(`${URL}/products/`);
-    console.log(data.results);
+    // console.log(data.results);
 
     // const getProducts = async () => {
     //   // const { data } = await axios(`${API}${location.search}`);
@@ -68,7 +69,7 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getProductsLength = async () => {
-    const { data } = await axios(`${URL}/?page=${page}`);
+    const { data } = await axios(`${URL}`);
     dispatch({
       type: "GET_PRODUCTS_LENGTH",
       payload: data.length,
@@ -155,6 +156,14 @@ const ProductContextProvider = ({ children }) => {
     // getProductsDetails(newProduct.id);
   };
 
+  const searchFilter = async (value) => {
+    const { data } = await axios(`${URL}/name=${value}`);
+    dispatch({
+      type: "GET_PRODUCTS",
+      payload: data,
+    });
+  };
+
   return (
     <productContext.Provider
       value={{
@@ -175,6 +184,7 @@ const ProductContextProvider = ({ children }) => {
         editProduct,
         saveProduct,
         getProductsLength,
+        searchFilter,
       }}
     >
       {children}
