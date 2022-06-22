@@ -42,6 +42,7 @@ const ProductContextProvider = ({ children }) => {
 
   const getProducts = async (id) => {
     let { data } = await axios(`${URL}/products/`);
+    console.log(data.results);
 
     // const getProducts = async () => {
     //   // const { data } = await axios(`${API}${location.search}`);
