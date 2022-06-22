@@ -60,7 +60,7 @@ const Filter = ({ type, setType }) => {
               control={<Radio />}
               label="MAIN DISHES"
             />
-            <FormControlLabel value="All" control={<Radio />} label="ALL" />
+            {/* <FormControlLabel value="All" control={<Radio />} label="ALL" /> */}
           </RadioGroup>
         </Box>
       </FormControl>

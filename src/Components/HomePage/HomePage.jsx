@@ -52,17 +52,18 @@ const HomePage = () => {
               />
               <Carousel.Caption
                 sx={{
-                  paddingBottom: "200px",
+                  // paddingBottom: "200px",
                   width: "700px",
-                  margin: "10px auto",
+                  // margin: "10px auto",
                 }}
               >
                 <p
                   style={{
+                    // marginTop: "50px",
                     fontFamily: "Great Vibes, cursive",
-                    fontSize: "40px",
+                    fontSize: "60px",
                     color: "#c49b63",
-                    marginBottom: "60px",
+
                     textShadow: "1px 1px 1px #000",
                   }}
                 >
@@ -95,7 +96,11 @@ const HomePage = () => {
                   <a
                     href="/list"
                     className="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"
-                    style={{ backgroundColor: "#c49b63", color: "white" }}
+                    style={{
+                      backgroundColor: "#c49b63",
+                      color: "white",
+                      marginBottom: "150px",
+                    }}
                   >
                     View Menu
                   </a>
@@ -120,7 +125,7 @@ const HomePage = () => {
                 <p
                   style={{
                     fontFamily: "Great Vibes, cursive",
-                    fontSize: "40px",
+                    fontSize: "60px",
                     color: "#c49b63",
                     marginBottom: "60px",
                     textShadow: "1px 1px 1px #000",
@@ -155,7 +160,11 @@ const HomePage = () => {
                   <a
                     href="/list"
                     className="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"
-                    style={{ backgroundColor: "#c49b63", color: "white" }}
+                    style={{
+                      backgroundColor: "#c49b63",
+                      color: "white",
+                      marginBottom: "150px",
+                    }}
                   >
                     View Menu
                   </a>
@@ -180,7 +189,7 @@ const HomePage = () => {
                 <p
                   style={{
                     fontFamily: "Great Vibes, cursive",
-                    fontSize: "40px",
+                    fontSize: "60px",
                     color: "#c49b63",
                     marginBottom: "30px",
                     textShadow: "1px 1px 1px #000",
@@ -216,7 +225,11 @@ const HomePage = () => {
                   <a
                     href="/list"
                     className="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3"
-                    style={{ backgroundColor: "#c49b63", color: "white" }}
+                    style={{
+                      backgroundColor: "#c49b63",
+                      color: "white",
+                      marginBottom: "100px",
+                    }}
                   >
                     View Menu
                   </a>
