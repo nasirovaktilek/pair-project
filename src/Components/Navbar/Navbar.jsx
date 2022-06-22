@@ -66,8 +66,7 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navigate = useNavigate();
-  const { user } = React.useContext(authContext);
-  console.log(user);
+  const { user, email } = React.useContext(authContext);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -186,7 +185,6 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-  // let user1 = "boris@gmail.com";
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -278,10 +276,9 @@ export default function PrimarySearchAppBar() {
               onClick={() => navigateToRegistrationPage()}
               color="inherit"
             >
-              <AppRegistrationIcon />
+              <AppRegistrationIcon/>
             </IconButton>
           </Box>
-
           <LiveSearch />
         </Toolbar>
       </AppBar>

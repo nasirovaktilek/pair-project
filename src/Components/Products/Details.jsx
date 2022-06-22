@@ -96,7 +96,7 @@ const ProductDetails = () => {
             >
               Add To Cart
             </Button>
-            {/* {user.email === "admin@gmail.com" ? (  */}
+            {/* {user === "admin@admin.com" ? (  */}
             <NavLink to={`/edit/${productDetails.id}`}>
               <Button
                 startIcon={<EditIcon />}
@@ -131,7 +131,7 @@ const ProductDetails = () => {
                 Delete
               </Button>
             </NavLink>
-            {/* ) : null } */}
+           {/* ) : null }  */}
 
             <Alert
               severity="info"

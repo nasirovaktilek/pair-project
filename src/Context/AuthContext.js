@@ -40,16 +40,15 @@ const AuthContextProvider = ({ children }) => {
   };
 
   async function login(username, password) {
-    console.log(username, password);
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
     let formData = new FormData();
     formData.append("email", username);
     formData.append("password", password);
-
     try {
       let res = await axios.post(`${API}/account/login/`, formData, config);
+      // console.log(res.data);
       const { access, refresh } = res.data;
       localStorage.setItem("access", access);
       localStorage.setItem("refresh", refresh);
@@ -57,6 +56,7 @@ const AuthContextProvider = ({ children }) => {
       setUser(username);
       navigate("/");
     } catch (error) {
+      console.log(error);
       setError(error.response.data);
     }
   }
