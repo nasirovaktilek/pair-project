@@ -213,7 +213,7 @@ export default function PrimarySearchAppBar() {
                 marginTop: "5px",
               }}
               className="navbar-brand"
-              onClick={()=>navigateToHomePage()}
+              onClick={() => navigateToHomePage()}
             >
               COFFEE
             </IconButton>
@@ -280,7 +280,7 @@ export default function PrimarySearchAppBar() {
               onClick={() => navigateToRegistrationPage()}
               color="inherit"
             >
-              <AppRegistrationIcon/>
+              <AppRegistrationIcon sx={{ ml: "10px" }} />
             </IconButton>
           </Box>
           <LiveSearch />

@@ -10,6 +10,7 @@ let URL = "https://unitedstates3.herokuapp.com/api/v1";
 
 const INIT_STATE = {
   products: [],
+  productsLength: 0,
   productDetails: {},
   productToEdit: {},
   user: {},
@@ -19,6 +20,8 @@ const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case "GET_PRODUCTS":
       return { ...state, products: action.payload };
+    case "GET_PRODUCTS_LENGTH":
+      return { ...state, productsLength: action.payload };
     case "GET_PRODUCTS_DETAILS":
       return { ...state, productDetails: action.payload };
     case "EDIT_PRODUCT":
@@ -41,6 +44,13 @@ const ProductContextProvider = ({ children }) => {
   // console.log(location.search);
 
   const getProducts = async () => {
+    // const { data } = await axios(`${API}${location.search}`);
+    // // const { data } = await axios(`${API}/?page=${page}`);
+    // // setCount(Math.ceil(data.count / 6));
+    // dispatch({
+    //   type: "GET_PRODUCTS",
+    //   payload: data,
+
     let { data } = await axios.get(`${URL}/products/`);
     console.log(data.results);
 
@@ -55,6 +65,14 @@ const ProductContextProvider = ({ children }) => {
       payload: data.results,
     });
     // console.log(data);
+  };
+
+  const getProductsLength = async () => {
+    const { data } = await axios(`${URL}/?page=${page}`);
+    dispatch({
+      type: "GET_PRODUCTS_LENGTH",
+      payload: data.length,
+    });
   };
 
   const getProductsDetails = async (id) => {
@@ -137,11 +155,13 @@ const ProductContextProvider = ({ children }) => {
       value={{
         products: state.products,
         productDetails: state.productDetails,
+        // productsLength: state.productsLength,
         productToEdit: state.productToEdit,
         user: state.user,
         page,
         count,
         setPage,
+        setCount,
         addProduct,
         getProducts,
         getProductsDetails,
@@ -149,6 +169,7 @@ const ProductContextProvider = ({ children }) => {
         deleteProduct,
         editProduct,
         saveProduct,
+        getProductsLength,
       }}
     >
       {children}
