@@ -12,7 +12,7 @@ import { authContext } from "../../Context/AuthContext";
 const ProductDetails = () => {
   let { id } = useParams();
   const { deleteProduct } = useContext(productContext);
-  const { user } = React.useContext(authContext);
+  const { user } = useContext(authContext);
   const { getProductsDetails, productDetails } = useContext(productContext);
 
   useEffect(() => {

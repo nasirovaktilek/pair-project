@@ -40,7 +40,7 @@ const ProductContextProvider = ({ children }) => {
   const location = useLocation();
   // console.log(location.search);
 
-  const getProducts = async (id) => {
+  const getProducts = async () => {
     let { data } = await axios.get(`${URL}/products/`);
     console.log(data.results);
 
@@ -52,15 +52,14 @@ const ProductContextProvider = ({ children }) => {
 
     dispatch({
       type: "GET_PRODUCTS",
-      // type: ACTIONS.GET_PRODUCTS,
       payload: data.results,
     });
     // console.log(data);
   };
 
   const getProductsDetails = async (id) => {
-    let { data } = await axios(`${URL}/products/${id}`);
-
+    let { data } = await axios.get(`${URL}/products/${id}/`);
+    console.log(data);
     dispatch({
       type: "GET_PRODUCTS_DETAILS",
       payload: data,
