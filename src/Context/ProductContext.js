@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { createContext, useReducer, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { API } from "../Config";
+// import API from "../Config";
 
 export const productContext = createContext();
+let API = "http://localhost:8000/products";
 
 const INIT_STATE = {
   products: [],

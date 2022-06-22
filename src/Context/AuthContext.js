@@ -16,16 +16,15 @@ const AuthContextProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  const register = async (email, password, passwordConfirm, name) => {
+  const register = async (email, password, passwordConfirm) => {
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
+    console.log(email, password, passwordConfirm, "from context");
     let formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password_confirm", passwordConfirm);
-    formData.append("name", name);
-    // console.log(email, password, name);
 
     try {
       const res = await axios.post(
