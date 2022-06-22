@@ -6,7 +6,7 @@ import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, getCart, deleteCartProduct, changeProductCount } =
+  const { cart, getCart, deleteCartProduct, changeProductCount, editProduct } =
     useContext(cartContext);
 
   useEffect(() => {
