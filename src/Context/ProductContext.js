@@ -8,6 +8,7 @@ let API = "http://localhost:8000/products";
 
 const INIT_STATE = {
   products: [],
+  productsLength: 0,
   productDetails: {},
 };
 
@@ -15,6 +16,8 @@ const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case "GET_PRODUCTS":
       return { ...state, products: action.payload };
+    case "GET_PRODUCTS_LENGTH":
+      return { ...state, productsLength: action.payload };
     case "GET_PRODUCTS_DETAILS":
       return { ...state, productDetails: action.payload };
     default:
@@ -35,15 +38,23 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getProducts = async () => {
-    // const { data } = await axios(`${API}${location.search}`);
-    const { data } = await axios(`${API}/?page=${page}`);
+    const { data } = await axios(`${API}${location.search}`);
+    // const { data } = await axios(`${API}/?page=${page}`);
 
     // setCount(Math.ceil(data.count / 6));
 
     dispatch({
       type: "GET_PRODUCTS",
-      // type: ACTIONS.GET_PRODUCTS,
+
       payload: data,
+    });
+  };
+
+  const getProductsLength = async () => {
+    const { data } = await axios(`${API}`);
+    dispatch({
+      type: "GET_PRODUCTS_LENGTH",
+      payload: data.length,
     });
   };
 
@@ -70,6 +81,7 @@ const ProductContextProvider = ({ children }) => {
       value={{
         products: state.products,
         productDetails: state.productDetails,
+        productsLength: state.productsLength,
         page,
         count,
         setPage,
@@ -79,6 +91,7 @@ const ProductContextProvider = ({ children }) => {
         getProductsDetails,
         deleteProduct,
         editProduct,
+        getProductsLength,
       }}
     >
       {children}

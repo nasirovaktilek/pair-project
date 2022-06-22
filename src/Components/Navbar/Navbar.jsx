@@ -236,16 +236,17 @@ export default function PrimarySearchAppBar() {
                 onClick={() => navigateToList()}
               />
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge color="error">
-                <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
-              </Badge>
-            </IconButton>
-
+            {user === "admin@admin.com" ? (
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit"
+              >
+                <Badge color="error">
+                  <AddCircleOutlineSharpIcon onClick={() => navigateToAdd()} />
+                </Badge>
+              </IconButton>
+            ) : null}
             <IconButton
               size="large"
               aria-label="show 4 new mails"
