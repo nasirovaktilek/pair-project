@@ -1,6 +1,7 @@
+import { ActionTypes } from "@mui/base";
 import axios from "axios";
 import React, { createContext, useReducer, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 // import { API } from "../Config";
 export const productContext = createContext();
 
@@ -37,7 +38,7 @@ const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(1);
-
+  const navigate = useNavigate();
   // console.log(state.products, "products inside context");
 
   const location = useLocation();
@@ -52,7 +53,7 @@ const ProductContextProvider = ({ children }) => {
     //   payload: data,
 
     let { data } = await axios.get(`${URL}/products/`);
-    console.log(data.results);
+    // console.log(data.results);
 
     // const getProducts = async () => {
     //   // const { data } = await axios(`${API}${location.search}`);
@@ -125,14 +126,19 @@ const ProductContextProvider = ({ children }) => {
   // };
   //!__________________________________________________________________;
   const deleteProduct = async (id) => {
-    let token = localStorage.getItem("access");
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    await axios.delete(`${URL}/products/${id}/`, config);
-    getProducts();
+    try {
+      let token = localStorage.getItem("access");
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      await axios.delete(`${URL}/products/${id}/`, config);
+      getProducts();
+      navigate("/list");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //!_________________________________________________________________;
@@ -148,6 +154,14 @@ const ProductContextProvider = ({ children }) => {
     await axios.patch(`${URL}/products/${newProduct["id"]}/`, newProduct);
     getProducts();
     // getProductsDetails(newProduct.id);
+  };
+
+  const searchFilter = async (value) => {
+    const { data } = await axios(`${URL}/name=${value}`);
+    dispatch({
+      type: "GET_PRODUCTS",
+      payload: data,
+    });
   };
 
   return (
@@ -170,6 +184,7 @@ const ProductContextProvider = ({ children }) => {
         editProduct,
         saveProduct,
         getProductsLength,
+        searchFilter,
       }}
     >
       {children}

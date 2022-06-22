@@ -96,23 +96,26 @@ const ProductDetails = () => {
             >
               Add To Cart
             </Button>
-            {/* {user === "admin@admin.com" ? (  */}
-            <NavLink to={`/edit/${productDetails.id}`}>
-              <Button
-                startIcon={<EditIcon />}
-                fullWidth={true}
-                variant="outlined"
-                sx={{
-                  color: "#808080",
-                  marginTop: "20px",
-                  height: "50px",
+            {user === "admin@admin.com" ? (
+              <NavLink to={`/edit/${id}`}>
+                <Button
+                  startIcon={<EditIcon />}
+                  fullWidth={true}
+                  variant="outlined"
+                  sx={{
+                    color: "#808080",
+                    marginTop: "20px",
+                    height: "50px",
 
-                  width: "49%",
-                  borderColor: "#808080",
-                }}
-              >
-                Edit
-              </Button>
+                    width: "49%",
+                    borderColor: "#808080",
+                  }}
+                >
+                  Edit
+                </Button>
+              </NavLink>
+            ) : null}
+            {user === "admin@admin.com" ? (
               <Button
                 onClick={() => deleteProduct(productDetails.id)}
                 startIcon={<DeleteForeverIcon />}
@@ -130,8 +133,9 @@ const ProductDetails = () => {
               >
                 Delete
               </Button>
-            </NavLink>
-           {/* ) : null }  */}
+            ) : null}
+
+            {/* ) : null }  */}
 
             <Alert
               severity="info"

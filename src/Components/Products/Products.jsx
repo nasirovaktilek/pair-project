@@ -51,7 +51,7 @@ const Products = () => {
     getProducts();
     getProductsLength();
   }, []);
-  console.log(searchParams.get("q"));
+  // console.log(searchParams.get("q"));
   useEffect(() => {
     if (searchParams.get("q")) {
       setSearchParams(paramsWithType());

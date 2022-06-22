@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import { useLocation, useSearchParams } from "react-router-dom";
+import { productContext } from "../../Context/ProductContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -46,18 +47,24 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const LiveSearch = () => {
   const [searchValue, setsearchValue] = useState("");
-
   const [searchParams, setSearchParams] = useSearchParams();
-
   const location = useLocation();
+  const { getProducts, searchFilter } = useContext(productContext);
 
   useEffect(() => {
-    if (location.pathname === "/list") {
-      setSearchParams({
-        q: searchValue,
-      });
-    }
+    let currentParams = Object.fromEntries([]);
+
+    setSearchParams(searchValue);
+    searchFilter(searchValue);
   }, [searchValue]);
+
+  // useEffect(() => {
+  //   if (location.pathname === "/list") {
+  //     setSearchParams({
+  //       q: searchValue,
+  //     });
+  //   }
+  // }, [searchValue]);
 
   return (
     <Search>
