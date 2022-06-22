@@ -6,6 +6,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
+let URL = "https://unitedstates3.herokuapp.com/api/v1";
+
 const AddProduct = () => {
   const [inpName, setInpName] = useState("");
   const [inpDescription, setInpDescription] = useState("");
@@ -23,7 +25,21 @@ const AddProduct = () => {
     newObj.append("category", inpCategory);
     newObj.append("description", inpDescription);
     newObj.append("price", inpPrice);
+    newObj.append("is_published", true);
+    newObj.append("watch", 0);
+
     // newObj.append("image", selectedFile);
+
+    const newObj2 = {
+      name: inpName,
+      category: inpCategory,
+      description: inpDescription,
+      price: inpPrice,
+      is_published: true,
+      watch: 0,
+    };
+
+    console.log(newObj2, "add object");
     addProduct(newObj);
   }
 
@@ -86,8 +102,8 @@ const AddProduct = () => {
             id="outlined-basic"
             label="Description"
             variant="outlined"
-            value={inpPrice}
-            onChange={(e) => setInpPrice(e.target.value)}
+            value={inpDescription}
+            onChange={(e) => setInpDescription(e.target.value)}
             name="description"
             className="inp3 m-1"
           />
@@ -99,8 +115,8 @@ const AddProduct = () => {
             type="number"
             label="Price"
             variant="outlined"
-            value={inpDescription}
-            onChange={(e) => setInpDescription(e.target.value)}
+            value={inpPrice}
+            onChange={(e) => setInpPrice(e.target.value)}
             name="price"
             className="inp4 m-1"
           />

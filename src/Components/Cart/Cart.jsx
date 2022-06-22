@@ -6,7 +6,7 @@ import { cartContext } from "../../Context/CartContext";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, getCart, deleteCartProduct, changeProductCount } =
+  const { cart, getCart, deleteCartProduct, changeProductCount, editProduct } =
     useContext(cartContext);
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const Cart = () => {
                       sx={{
                         width: "200px",
                         height: "200px",
-                        margin: "100px 30px",
+                        margin: "40px 30px",
                         borderRadius: "10px",
                       }}
                       component="img"

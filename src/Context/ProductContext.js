@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { API, API_PRODUCTS } from "../Config";
+// import { API } from "../Config";
 export const productContext = createContext();
 
-let URL = "http://unitedstates3.herokuapp.com/api/v1/";
+let URL = "https://unitedstates3.herokuapp.com/api/v1";
 
 // const API = "http://localhost:8000/products";
 
@@ -32,6 +32,8 @@ const reducer = (state = INIT_STATE, action) => {
 
 const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(1);
 
   // console.log(state.products, "products inside context");
 
@@ -41,8 +43,15 @@ const ProductContextProvider = ({ children }) => {
   const getProducts = async (id) => {
     let { data } = await axios(`${URL}/products/`);
 
+    // const getProducts = async () => {
+    //   // const { data } = await axios(`${API}${location.search}`);
+    //   const { data } = await axios(`${API}/?page=${page}`);
+
+    //   setCount(Math.ceil(data.count / 6));
+
     dispatch({
       type: "GET_PRODUCTS",
+      // type: ACTIONS.GET_PRODUCTS,
       payload: data,
     });
     // console.log(data);
@@ -115,6 +124,10 @@ const ProductContextProvider = ({ children }) => {
         productDetails: state.productDetails,
         productToEdit: state.productToEdit,
         user: state.user,
+        page,
+        count,
+        setPage,
+        addProduct,
         getProducts,
         getProductsDetails,
         addProduct,

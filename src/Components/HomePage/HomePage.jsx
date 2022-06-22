@@ -13,11 +13,27 @@ import menu1 from "../../assets/images/menu1.jpg";
 import menu2 from "../../assets/images/menu2.jpg";
 import menu3 from "../../assets/images/menu3.jpg";
 import menu4 from "../../assets/images/menu4.jpg";
+import PhoneIcon from "@mui/icons-material/Phone";
+import MyLocationIcon from "@mui/icons-material/MyLocation";
+import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
+import gallery1 from "../../assets/images/gallery-1.jpg";
+import gallery2 from "../../assets/images/gallery-2.jpg";
+import gallery3 from "../../assets/images/gallery-3.jpg";
+import gallery4 from "../../assets/images/gallery-4.jpg";
+// import person2 from "../../assets/images/person_2.jpg";
+// import person3 from "../../assets/images/person_3.jpg";
+// import person4 from "../../assets/images/person_4.jpg";
 
 import Footer from "../Footer/Footer";
 import { Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const navigateToList = () => {
+    navigate("/list");
+  };
+
   return (
     <>
       <Box>
@@ -35,10 +51,10 @@ const HomePage = () => {
                 alt={carouselImage1}
               />
               <Carousel.Caption
-                style={{
+                sx={{
                   paddingBottom: "200px",
                   width: "700px",
-                  margin: "20px auto",
+                  margin: "10px auto",
                 }}
               >
                 <p
@@ -95,10 +111,10 @@ const HomePage = () => {
                 alt={carouselImage2}
               />
               <Carousel.Caption
-                style={{
+                sx={{
                   paddingBottom: "200px",
                   width: "700px",
-                  margin: "20px auto",
+                  margin: "10px auto",
                 }}
               >
                 <p
@@ -155,10 +171,10 @@ const HomePage = () => {
                 alt={carouselImage3}
               />
               <Carousel.Caption
-                style={{
+                sx={{
                   paddingBottom: "200px",
                   width: "700px",
-                  margin: "20px auto",
+                  margin: "10px auto",
                 }}
               >
                 <p
@@ -209,30 +225,127 @@ const HomePage = () => {
             </Carousel.Item>
           </Carousel>
         </div>
+        {/* //! Section Info */}
+        <section className="ftco-intro" style={{ margin: "40px 10%" }}>
+          <div className="container-wrap">
+            <div className="wrap d-md-flex align-items-xl-end">
+              <div className="info">
+                <div className="row no-gutters">
+                  <div className="col-md-4 d-flex ftco-animate">
+                    <div className="text">
+                      <h3
+                        style={{
+                          fontFamily: "Josefin Sans",
+                          fontSize: "15px",
+                          color: "#FFFFFFB3",
+                        }}
+                      >
+                        <PhoneIcon sx={{ color: "#c49b63" }} /> 000 (123) 456
+                        7890
+                      </h3>
+                      <p
+                        style={{
+                          lineHeight: "30px",
+                          color: "#808080",
+                          fontFamily: "Poppins",
+                          fontSize: "16px",
+                        }}
+                      >
+                        A small river named Duden flows by their place and
+                        supplies.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-md-4 d-flex ftco-animate">
+                    <div className="icon">
+                      <span className="icon-my_location"></span>
+                    </div>
+                    <div className="text">
+                      <h3
+                        style={{
+                          fontFamily: "Josefin Sans",
+                          fontSize: "15px",
+                          color: "#FFFFFFB3",
+                        }}
+                      >
+                        <MyLocationIcon sx={{ color: "#c49b63" }} /> 198 West
+                        21th Street
+                      </h3>
+                      <p
+                        style={{
+                          lineHeight: "30px",
+                          color: "#808080",
+                          fontFamily: "Poppins",
+                          fontSize: "16px",
+                        }}
+                      >
+                        203 Fake St. Mountain View, San Francisco, California,
+                        USA
+                      </p>
+                    </div>
+                  </div>
+                  <div className="col-md-4 d-flex ftco-animate">
+                    <div className="icon">
+                      <span className="icon-clock-o"></span>
+                    </div>
+                    <div
+                      className="text"
+                      style={{
+                        marginLeft: "20px",
+                      }}
+                    >
+                      <h3
+                        style={{
+                          fontFamily: "Josefin Sans",
+                          fontSize: "15px",
+                          color: "#FFFFFFB3",
+                        }}
+                      >
+                        <AccessAlarmIcon sx={{ color: "#c49b63" }} /> Open
+                        Monday-Friday
+                      </h3>
+                      <p
+                        style={{
+                          lineHeight: "30px",
+                          color: "#808080",
+                          fontFamily: "Poppins",
+                          fontSize: "16px",
+                        }}
+                      >
+                        8:00am - 9:00pm
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* //! Section 2 start */}
-        <Box>
+        <Box className="sec2">
           <section
-            // style={{ backgroundColor: "#1e1c1c" }}
             className="ftco-about d-md-flex"
             style={{ position: "relative", backgroundColor: "#1e1c1c" }}
           >
-            <Box
-              className="one-half img"
-              // style={{ backgroundImage: `url(${aboutImg})` }}
-            >
-              <img src={aboutImg} alt={aboutImg} width={"100%"} />
+            <Box className="one-half" sx={{ width: "100%" }}>
+              <img
+                className="img1"
+                src={aboutImg}
+                alt={aboutImg}
+                width={"100%"}
+              />
             </Box>
             <Box
               className="one-half ftco-animate"
-              style={{ position: "absolute", right: "180px", top: "20px" }}
+              style={{ position: "absolute", right: "10%" }}
             >
               <Box
                 className="overlap"
                 style={{
-                  backgroundColor: "#1b1b1b5e",
+                  backgroundColor: "#121212a7",
                   width: "600px",
-                  // marginLeft: "900px",
-                  marginTop: "100px",
+
+                  marginTop: "20%",
                   borderRadius: "20px",
                 }}
               >
@@ -397,14 +510,13 @@ const HomePage = () => {
             </div>
           </section>
         </Box>
-
         {/* //! Section 4 start */}
         <Box>
           <section style={{ color: "#FFFFFFB3" }} className="ftco-section">
             <Box className="container">
               <Box
-                style={{ marginBottom: "100px" }}
-                className="row justify-content-center mb-5 pb-3"
+                // style={{ marginBottom: "100px" }}
+                className="row justify-content-center pb-3"
               >
                 <Box
                   style={{ marginTop: "50px" }}
@@ -443,10 +555,10 @@ const HomePage = () => {
                   </p>
                 </Box>
               </Box>
-              <div className="row">
+              <div className="row drinks">
                 <div className="col-md-3">
                   <div className="menu-entry">
-                    <img style={{ width: "300px" }} src={menu1} alt={menu1} />
+                    <img style={{ width: "100%" }} src={menu1} alt={menu1} />
                     <div className="text text-center pt-4">
                       <h3>
                         <a
@@ -456,9 +568,9 @@ const HomePage = () => {
                             textDecoration: "none",
                             color: "#FFFFFFB3",
                           }}
-                          href="#"
+                          href="/list"
                         >
-                          COFFEE CAPUCCINO
+                          CAPUCCINO
                         </a>
                       </h3>
                       <p
@@ -476,7 +588,7 @@ const HomePage = () => {
                         <span>$5.90</span>
                       </p>
                       <p>
-                        <Button
+                        {/* <Button
                           className="btn btn-dark btn-outline-light"
                           style={{
                             marginBottom: "60px",
@@ -485,14 +597,14 @@ const HomePage = () => {
                           }}
                         >
                           Add to Cart
-                        </Button>
+                        </Button> */}
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-3">
                   <div className="menu-entry">
-                    <img style={{ width: "300px" }} src={menu2} alt={menu2} />
+                    <img style={{ width: "100%" }} src={menu2} alt={menu2} />
                     <div className="text text-center pt-4">
                       <h3>
                         <a
@@ -502,10 +614,10 @@ const HomePage = () => {
                             textDecoration: "none",
                             color: "#FFFFFFB3",
                           }}
-                          href="#"
+                          href="/list"
                         >
                           {" "}
-                          COFFEE CAPUCCINO
+                          MACCHIATO
                         </a>
                       </h3>
                       <p
@@ -523,7 +635,7 @@ const HomePage = () => {
                         <span>$5.90</span>
                       </p>
                       <p>
-                        <Button
+                        {/* <Button
                           className="btn btn-dark btn-outline-light"
                           style={{
                             marginBottom: "60px",
@@ -532,14 +644,14 @@ const HomePage = () => {
                           }}
                         >
                           Add to Cart
-                        </Button>
+                        </Button> */}
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-3">
                   <div className="menu-entry">
-                    <img style={{ width: "300px" }} src={menu3} alt={menu3} />
+                    <img style={{ width: "100%" }} src={menu3} alt={menu3} />
                     <div className="text text-center pt-4">
                       <h3>
                         <a
@@ -549,10 +661,10 @@ const HomePage = () => {
                             textDecoration: "none",
                             color: "#FFFFFFB3",
                           }}
-                          href="#"
+                          href="/list"
                         >
                           {" "}
-                          COFFEE CAPUCCINO
+                          LATTE
                         </a>
                       </h3>
                       <p
@@ -570,7 +682,7 @@ const HomePage = () => {
                         <span>$5.90</span>
                       </p>
                       <p>
-                        <Button
+                        {/* <Button
                           className="btn btn-dark btn-outline-light"
                           style={{
                             marginBottom: "60px",
@@ -579,14 +691,14 @@ const HomePage = () => {
                           }}
                         >
                           Add to Cart
-                        </Button>
+                        </Button> */}
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="col-md-3">
                   <div className="menu-entry">
-                    <img style={{ width: "300px" }} src={menu4} alt={menu4} />
+                    <img style={{ width: "100%" }} src={menu4} alt={menu4} />
                     <div className="text text-center pt-4">
                       <h3>
                         <a
@@ -596,9 +708,9 @@ const HomePage = () => {
                             textDecoration: "none",
                             color: "#FFFFFFB3",
                           }}
-                          href="#"
+                          href="/list"
                         >
-                          COFFEE CAPUCCINO
+                          FRAPPE
                         </a>
                       </h3>
                       <p
@@ -616,7 +728,7 @@ const HomePage = () => {
                         <span>$5.90</span>
                       </p>
                       <p>
-                        <Button
+                        {/* <Button
                           className="btn btn-dark btn-outline-light"
                           style={{
                             marginBottom: "60px",
@@ -625,15 +737,97 @@ const HomePage = () => {
                           }}
                         >
                           Add to Cart
-                        </Button>
+                        </Button> */}
                       </p>
                     </div>
                   </div>
                 </div>
+                <Button
+                  onClick={() => navigateToList()}
+                  variant="outlined"
+                  className="btn btn-dark btn-outline-light"
+                  style={{
+                    width: "200px",
+                    margin: "40px auto",
+                    marginBottom: "60px",
+
+                    borderColor: "#c49b63",
+                    color: "white",
+                  }}
+                >
+                  View Full Menu
+                </Button>
               </div>
             </Box>
           </section>
         </Box>
+        {/* //! Section 5 */}
+        <section className="ftco-gallery">
+          <div className="container-wrap">
+            <div className="row no-gutters">
+              <div
+                className="col-md-3 ftco-animate"
+                style={{ padding: "5px 0px" }}
+              >
+                <img
+                  style={{ height: "100%" }}
+                  className="d-block w-100"
+                  src={gallery1}
+                  alt={gallery1}
+                />
+
+                <div className="icon mb-4 d-flex align-items-center justify-content-center">
+                  <span className="icon-search"></span>
+                </div>
+              </div>
+              <div
+                style={{ padding: "5px 0px" }}
+                className="col-md-3 ftco-animate"
+              >
+                <img
+                  style={{ height: "100%" }}
+                  className="d-block w-100"
+                  src={gallery2}
+                  alt={gallery2}
+                />
+                <div className="icon mb-4 d-flex align-items-center justify-content-center">
+                  <span className="icon-search"></span>
+                </div>
+              </div>
+              <div
+                style={{ padding: "5px 0px" }}
+                className="col-md-3 ftco-animate"
+              >
+                <img
+                  style={{ height: "100%" }}
+                  className="d-block w-100"
+                  src={gallery3}
+                  alt={gallery3}
+                />
+                <div className="icon mb-4 d-flex align-items-center justify-content-center">
+                  <span className="icon-search"></span>
+                </div>
+              </div>
+              <div
+                style={{ padding: "5px 0px" }}
+                className="col-md-3 ftco-animate"
+              >
+                <img
+                  style={{ height: "100%" }}
+                  className="d-block w-100"
+                  src={gallery4}
+                  alt={gallery4}
+                />
+                <div className="icon mb-4 d-flex align-items-center justify-content-center">
+                  <span className="icon-search"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* //! Section 6 */}
+
         {/* //! Footer start */}
         <Footer />
       </Box>
