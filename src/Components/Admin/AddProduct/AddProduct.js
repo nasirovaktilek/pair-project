@@ -54,15 +54,6 @@ const AddProduct = () => {
   //   });
   // };
 
-  // const handleChange = (e) => {
-  //   let obj = {
-  //     ...inputValues,
-  //     [e.target.name]: e.target.value,
-  //   };
-  //   setInputValues(obj);
-  //   // console.log(obj);
-  // };
-
   // const clearInputs = () => {
   //   setInputValues(initObj);
   // };
