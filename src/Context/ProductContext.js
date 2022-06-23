@@ -18,7 +18,7 @@ const INIT_STATE = {
 };
 
 const reducer = (state = INIT_STATE, action) => {
-  switch (action.type) {
+  switch (action.category) {
     case "GET_PRODUCTS":
       return { ...state, products: action.payload };
     case "GET_PRODUCTS_LENGTH":
@@ -42,27 +42,27 @@ const ProductContextProvider = ({ children }) => {
   // console.log(state.products, "products inside context");
 
   const location = useLocation();
-  console.log(location.search);
+  // console.log(location.search);
 
   const getProducts = async () => {
     const { data } = await axios(`${URL}/products${location.search}`);
-    // // const { data } = await axios(`${API}/?page=${page}`);
-    // // setCount(Math.ceil(data.count / 6));
+    // const { data } = await axios(`${API}/?page=${page}`);
+    // setCount(Math.ceil(data.count / 6));
     // dispatch({
-    //   type: "GET_PRODUCTS",
+    //   category: "GET_PRODUCTS",
     //   payload: data,
 
     // let { data } = await axios.get(`${URL}/products/`);
     // console.log(data.results);
 
     // const getProducts = async () => {
-    //   // const { data } = await axios(`${API}${location.search}`);
+    // const { data } = await axios(`${API}${location.search}`);
     //   const { data } = await axios(`${API}/?page=${page}`);
 
     //   setCount(Math.ceil(data.count / 6));
 
     dispatch({
-      type: "GET_PRODUCTS",
+      category: "GET_PRODUCTS",
       payload: data.results,
     });
     // console.log(data);
@@ -71,7 +71,7 @@ const ProductContextProvider = ({ children }) => {
   const getProductsLength = async () => {
     const { data } = await axios(`${URL}`);
     dispatch({
-      type: "GET_PRODUCTS_LENGTH",
+      category: "GET_PRODUCTS_LENGTH",
       payload: data.length,
     });
   };
@@ -80,7 +80,7 @@ const ProductContextProvider = ({ children }) => {
     let { data } = await axios.get(`${URL}/products/${id}/`);
     console.log(data);
     dispatch({
-      type: "GET_PRODUCTS_DETAILS",
+      category: "GET_PRODUCTS_DETAILS",
       payload: data,
     });
   };
@@ -88,7 +88,7 @@ const ProductContextProvider = ({ children }) => {
   const editProduct = async (id) => {
     let { data } = await axios(`${URL}/products/${id}`);
     dispatch({
-      type: "EDIT_PRODUCT",
+      category: "EDIT_PRODUCT",
       payload: data,
     });
   };
@@ -96,7 +96,7 @@ const ProductContextProvider = ({ children }) => {
   const getUserData = async (email) => {
     let { data } = await axios(`${URL}/login/${email}`);
     dispatch({
-      type: "GET_USER_DATA",
+      category: "GET_USER_DATA",
       payload: data,
     });
   };
@@ -156,28 +156,29 @@ const ProductContextProvider = ({ children }) => {
     // getProductsDetails(newProduct.id);
   };
 
-  // const fetchByParams = async (value) => {
-  //   if (value === "all") {
-  //     getProducts();
-  //   } else if (
-  //     value === "drinks" ||
-  //     value === "dessert" ||
-  //     value === "main dishes" ||
-  //     value === "burger"
-  //   ) {
-  //     const { data } = await axios(`${URL}/type=${value}/products/?category=`);
-  //   }
-  //   dispatch({
-  //     type: "GET_PRODUCTS",
-  //     payload: data,
-  //   });
-  // };
+  const fetchByParams = async (value) => {
+    if (value === "all") {
+      getProducts();
+    } else if (
+      value === "drinks" ||
+      value === "dessert" ||
+      value === "main_dishes" ||
+      value === "burger"
+    ) {
+      const { data } = await axios(`${URL}/products/?category=${value}`);
+
+      dispatch({
+        category: "GET_PRODUCTS",
+        payload: data.results,
+      });
+    }
+  };
 
   const searchFilter = async (value) => {
     const { data } = await axios(`${URL}/products?q=${value}`);
-    console.log(data);
+    // console.log(data);
     dispatch({
-      type: "GET_PRODUCTS",
+      category: "GET_PRODUCTS",
       payload: data.results,
     });
   };
@@ -197,7 +198,7 @@ const ProductContextProvider = ({ children }) => {
         addProduct,
         getProducts,
         getProductsDetails,
-        addProduct,
+        fetchByParams,
         deleteProduct,
         editProduct,
         saveProduct,

@@ -9,16 +9,17 @@ import { productContext } from "../../Context/ProductContext";
 import { Box } from "@mui/material";
 
 const Filter = () => {
-  const [type, setType] = useState("");
+  const [category, setCategory] = useState("");
   const [searchParams, setSearchParams] = useState("");
-  // const { fetchByParams } = useContext(productContext);
+  const { fetchByParams } = useContext(productContext);
 
-  // useEffect(() => {
-  //   let currentParams = Object.fromEntries([]);
-  //   if (true) {
-  //     fetchByParams(type);
-  //   }
-  // }, [type]);
+  console.log(category, "category");
+  useEffect(() => {
+    let currentParams = Object.fromEntries([]);
+    if (true) {
+      fetchByParams(category);
+    }
+  }, [category]);
 
   return (
     <Box>
@@ -49,31 +50,31 @@ const Filter = () => {
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group"
-            value={type}
-            onChange={(e) => setType(e.target.value)}
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
             sx={{ margin: "0 auto", display: "block" }}
           >
             <FormControlLabel
-              value="Drinks"
+              value="drinks"
               control={<Radio />}
               label="DRINKS"
             />
             <FormControlLabel
-              value="Dessert"
+              value="dessert"
               control={<Radio />}
               label="DESSERTS"
             />
             <FormControlLabel
-              value="Burger"
+              value="burger"
               control={<Radio />}
               label="BURGERS"
             />
             <FormControlLabel
-              value="Main Dishes"
+              value="main_dishes"
               control={<Radio />}
               label="MAIN DISHES"
             />
-            {/* <FormControlLabel value="All" control={<Radio />} label="ALL" /> */}
+            <FormControlLabel value="all" control={<Radio />} label="ALL" />
           </RadioGroup>
         </Box>
       </FormControl>
