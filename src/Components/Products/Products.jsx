@@ -32,52 +32,56 @@ const Products = () => {
 
   const paramsWithType = () => {
     return {
-      type: type,
-      _page: page,
-      _limit: PER_PAGE,
-      q: searchParams.get("q"),
+      // type: type,
+      // _page: page,
+      // _limit: PER_PAGE,
+      search: searchParams.get("q") || "",
     };
   };
 
   const paramsNoType = () => {
     return {
-      _page: page,
-      _limit: PER_PAGE,
-      q: searchParams.get("q") || "",
+      // _page: page,
+      // _limit: PER_PAGE,
+      search: searchParams.get("q") || "",
     };
   };
 
-  useEffect(() => {
-    getProducts();
-    getProductsLength();
-  }, []);
+  // useEffect(() => {
+  //   getProducts();
+  //   getProductsLength();
+  // }, []);
+  // // console.log(searchParams.get("q"));
+  // useEffect(() => {
+  //   if (searchParams.get("q")) {
+  //     setSearchParams(paramsWithType());
+  //   } else {
+  //     setSearchParams(paramsNoType());
+  //   }
+  // }, []);
 
-  useEffect(() => {
-    if (searchParams.get("type")) {
-      setSearchParams(paramsWithType());
-    } else {
-      setSearchParams(paramsNoType());
-    }
-  }, []);
-
-  useEffect(() => {
-    getProducts();
-    if (type === "all") {
-      setSearchParams(paramsNoType());
-    } else {
-      setSearchParams(paramsWithType());
-    }
-  }, [type, searchParams, page]);
+  // useEffect(() => {
+  //   getProducts();
+  //   if (type === "all") {
+  //     setSearchParams(paramsNoType());
+  //   } else {
+  //     setSearchParams(paramsWithType());
+  //   }
+  // }, [type, searchParams, page]);
 
   // useEffect(() => {
   //   setSearchParams(paramsWithType() + `_page=${page}&_limit=${PER_PAGE}`);
   // }, [page, searchParams]);
 
+  useEffect(() => {
+    getProducts();
+  }, [searchParams]);
+
   // ! Paginate======================
 
   const count = Math.ceil(productsLength / PER_PAGE);
   const _DATA = usePagination(products, PER_PAGE);
-  console.log(products);
+  // console.log(products);
 
   const handleChange = (e, p) => {
     setPage(p);

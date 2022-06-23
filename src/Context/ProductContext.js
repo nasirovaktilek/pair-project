@@ -1,3 +1,4 @@
+import { ActionTypes } from "@mui/base";
 import axios from "axios";
 import React, { createContext, useReducer, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
@@ -41,18 +42,18 @@ const ProductContextProvider = ({ children }) => {
   // console.log(state.products, "products inside context");
 
   const location = useLocation();
-  // console.log(location.search);
+  console.log(location.search);
 
   const getProducts = async () => {
-    // const { data } = await axios(`${API}${location.search}`);
+    const { data } = await axios(`${URL}/products${location.search}`);
     // // const { data } = await axios(`${API}/?page=${page}`);
     // // setCount(Math.ceil(data.count / 6));
     // dispatch({
     //   type: "GET_PRODUCTS",
     //   payload: data,
 
-    let { data } = await axios.get(`${URL}/products/`);
-    console.log(data.results);
+    // let { data } = await axios.get(`${URL}/products/`);
+    // console.log(data.results);
 
     // const getProducts = async () => {
     //   // const { data } = await axios(`${API}${location.search}`);
@@ -68,7 +69,7 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getProductsLength = async () => {
-    const { data } = await axios(`${URL}/?page=${page}`);
+    const { data } = await axios(`${URL}`);
     dispatch({
       type: "GET_PRODUCTS_LENGTH",
       payload: data.length,
@@ -158,6 +159,32 @@ const ProductContextProvider = ({ children }) => {
     // getProductsDetails(newProduct.id);
   };
 
+  // const fetchByParams = async (value) => {
+  //   if (value === "all") {
+  //     getProducts();
+  //   } else if (
+  //     value === "drinks" ||
+  //     value === "dessert" ||
+  //     value === "main dishes" ||
+  //     value === "burger"
+  //   ) {
+  //     const { data } = await axios(`${URL}/type=${value}/products/?category=`);
+  //   }
+  //   dispatch({
+  //     type: "GET_PRODUCTS",
+  //     payload: data,
+  //   });
+  // };
+
+  const searchFilter = async (value) => {
+    const { data } = await axios(`${URL}/products?q=${value}`);
+    console.log(data);
+    dispatch({
+      type: "GET_PRODUCTS",
+      payload: data.results,
+    });
+  };
+
   return (
     <productContext.Provider
       value={{
@@ -178,6 +205,7 @@ const ProductContextProvider = ({ children }) => {
         editProduct,
         saveProduct,
         getProductsLength,
+        searchFilter,
       }}
     >
       {children}
