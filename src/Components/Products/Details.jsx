@@ -99,6 +99,7 @@ const ProductDetails = () => {
             {user === "admin@admin.com" ? (
               <NavLink to={`/edit/${id}`}>
                 <Button
+                  // onClick={() => editProduct(productDetails.id)}
                   startIcon={<EditIcon />}
                   fullWidth={true}
                   variant="outlined"
