@@ -49,14 +49,14 @@ const LiveSearch = () => {
   const [searchValue, setsearchValue] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
-  const { getProducts, searchFilter } = useContext(productContext);
+  // const { getProducts, searchFilter } = useContext(productContext);
 
-  useEffect(() => {
-    let currentParams = Object.fromEntries([]);
+  // useEffect(() => {
+  //   let currentParams = Object.fromEntries([]);
 
-    setSearchParams(searchValue);
-    searchFilter(searchValue);
-  }, [searchValue]);
+  //   setSearchParams(searchValue);
+  //   searchFilter(searchValue);
+  // }, [searchValue]);
 
   // useEffect(() => {
   //   if (location.pathname === "/list") {
@@ -65,6 +65,14 @@ const LiveSearch = () => {
   //     });
   //   }
   // }, [searchValue]);
+
+  useEffect(() => {
+    if (location.pathname === "/list") {
+      setSearchParams({
+        search: searchValue,
+      });
+    }
+  }, [searchValue]);
 
   return (
     <Search>
