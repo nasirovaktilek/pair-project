@@ -42,17 +42,17 @@ const ProductContextProvider = ({ children }) => {
   // console.log(state.products, "products inside context");
 
   const location = useLocation();
-  // console.log(location.search);
+  console.log(location.search);
 
   const getProducts = async () => {
-    // const { data } = await axios(`${API}${location.search}`);
+    const { data } = await axios(`${URL}/products${location.search}`);
     // // const { data } = await axios(`${API}/?page=${page}`);
     // // setCount(Math.ceil(data.count / 6));
     // dispatch({
     //   type: "GET_PRODUCTS",
     //   payload: data,
 
-    let { data } = await axios.get(`${URL}/products/`);
+    // let { data } = await axios.get(`${URL}/products/`);
     // console.log(data.results);
 
     // const getProducts = async () => {
@@ -156,28 +156,29 @@ const ProductContextProvider = ({ children }) => {
     // getProductsDetails(newProduct.id);
   };
 
-  const fetchByParams = async (value) => {
-    if (value === "all") {
-      getProducts();
-    } else if (
-      value === "drinks" ||
-      value === "dessert" ||
-      value === "main dishes" ||
-      value === "burger"
-    ) {
-      const { data } = await axios(`${URL}/type=${value}/products/?category=`);
-    }
-    dispatch({
-      type: "GET_PRODUCTS",
-      payload: data,
-    });
-  };
+  // const fetchByParams = async (value) => {
+  //   if (value === "all") {
+  //     getProducts();
+  //   } else if (
+  //     value === "drinks" ||
+  //     value === "dessert" ||
+  //     value === "main dishes" ||
+  //     value === "burger"
+  //   ) {
+  //     const { data } = await axios(`${URL}/type=${value}/products/?category=`);
+  //   }
+  //   dispatch({
+  //     type: "GET_PRODUCTS",
+  //     payload: data,
+  //   });
+  // };
 
   const searchFilter = async (value) => {
-    const { data } = await axios(`${URL}/name=${value}`);
+    const { data } = await axios(`${URL}/products?q=${value}`);
+    console.log(data);
     dispatch({
       type: "GET_PRODUCTS",
-      payload: data,
+      payload: data.results,
     });
   };
 
