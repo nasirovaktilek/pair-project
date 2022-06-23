@@ -147,6 +147,10 @@ const ProductDetails = () => {
             >
               Номер кофейни должен быть здесь
             </Alert>
+            <br />
+            <Box>
+              <h3 style={{color:"white", textAlign:"center"}}>{productDetails.description}</h3>
+            </Box>
           </Grid>
         </Grid>
       </Container>
