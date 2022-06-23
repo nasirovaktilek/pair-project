@@ -8,7 +8,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { authContext } from "../../Context/AuthContext";
 import { cartContext } from "../../Context/CartContext";
-// import bgImage from "../../../assets/images/bg_home_page.jpg";
 
 const ProductDetails = () => {
   let { id } = useParams();
@@ -28,7 +27,6 @@ const ProductDetails = () => {
       style={{
         paddingTop: "10%",
         paddingBottom: "10%",
-        // backgroundColor: "#C49B63",
         backgroundColor: "#1e1c1c",
       }}
     >
@@ -57,9 +55,7 @@ const ProductDetails = () => {
             >
               {productDetails.name}
             </Typography>
-            {/* <Typography variant="body2" gutterBottom>
-              {productDetails.description}
-            </Typography> */}
+            
             <Typography
               variant="h4"
               component="div"
@@ -137,8 +133,6 @@ const ProductDetails = () => {
                 Delete
               </Button>
             ) : null}
-
-            {/* ) : null }  */}
 
             <Alert
               severity="info"
