@@ -142,15 +142,16 @@ const ProductContextProvider = ({ children }) => {
 
   //!_________________________________________________________________;
 
-  const saveProduct = async (newProduct) => {
-    // let access = localStorage.getItem("access");
-    // let config = {
-    //   headers: { "Content-Type": "multipart/form-data" },
-    // };
-    // if (access) {
-    //   config.headers.Authorization = `Bearer ${access}`;
-    // }
-    await axios.patch(`${URL}/products/${newProduct["id"]}/`, newProduct);
+  const saveProduct = async (newProduct, id) => {
+    let access = localStorage.getItem("access");
+    let config = {
+      headers: { "Content-Type": "multipart/form-data" },
+    };
+    if (access) {
+      config.headers.Authorization = `Bearer ${access}`;
+    }
+    console.log(config, "config");
+    await axios.patch(`${URL}/products/${id}/`, newProduct.config);
     getProducts();
     // getProductsDetails(newProduct.id);
   };
