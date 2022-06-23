@@ -156,6 +156,23 @@ const ProductContextProvider = ({ children }) => {
     // getProductsDetails(newProduct.id);
   };
 
+  const fetchByParams = async (value) => {
+    if (value === "all") {
+      getProducts();
+    } else if (
+      value === "drinks" ||
+      value === "dessert" ||
+      value === "main dishes" ||
+      value === "burger"
+    ) {
+      const { data } = await axios(`${URL}/type=${value}/products/?category=`);
+    }
+    dispatch({
+      type: "GET_PRODUCTS",
+      payload: data,
+    });
+  };
+
   const searchFilter = async (value) => {
     const { data } = await axios(`${URL}/name=${value}`);
     dispatch({

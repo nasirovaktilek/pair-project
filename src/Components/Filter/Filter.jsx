@@ -1,3 +1,4 @@
+import React, { useContext, useEffect, useState } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -6,7 +7,18 @@ import FormLabel from "@mui/material/FormLabel";
 import React from "react";
 import { Box } from "@mui/material";
 
-const Filter = ({ type, setType }) => {
+const Filter = () => {
+  const [type, setType] = useState("");
+  const [searchParams, setSearchParams] = useState("");
+  const { fetchByParams } = useContext(productContext);
+
+  useEffect(() => {
+    let currentParams = Object.fromEntries([]);
+    if (true) {
+      fetchByParams(type);
+    }
+  }, [type]);
+
   return (
     <Box>
       <FormControl
