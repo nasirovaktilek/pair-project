@@ -7,6 +7,7 @@ import { Alert, Box, Container, Grid, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { authContext } from "../../Context/AuthContext";
+import { cartContext } from "../../Context/CartContext";
 // import bgImage from "../../../assets/images/bg_home_page.jpg";
 
 const ProductDetails = () => {
@@ -14,6 +15,8 @@ const ProductDetails = () => {
   const { deleteProduct } = useContext(productContext);
   const { user } = useContext(authContext);
   const { getProductsDetails, productDetails } = useContext(productContext);
+  const { addProductToCart } = useContext(cartContext);
+
 
   useEffect(() => {
     getProductsDetails(id);
@@ -80,7 +83,7 @@ const ProductDetails = () => {
                 mt: "20px",
               }}
             ></Box>
-            <Button
+            <Button onClick={() => addProductToCart(productDetails)}
               startIcon={<AddShoppingCartIcon />}
               fullWidth={true}
               sx={{

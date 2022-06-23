@@ -39,101 +39,101 @@ const EditProduct = () => {
   }
 
   return (
-    <h1>Hello</h1>
-    // <>
-    //   {inpName ? (
-    //     <form className="inp" onSubmit={(e) => editItems(e)}>
-    //       <div className="inputs">
-    //         <div>
-    //           <TextField
-    //             sx={{ width: "400px", borderRadius: "5px" }}
-    //             id="outlined-basic"
-    //             label="Name"
-    //             variant="outlined"
-    //             value={inpName}
-    //             onChange={(e) => setInpName(e.target.value)}
-    //             type="text"
-    //             name="name"
-    //             className="inp1 m-1"
-    //           />
-    //         </div>
-    //         <div>
-    //           <TextField
-    //             sx={{ width: "400px" }}
-    //             id="outlined-basic"
-    //             label="Category"
-    //             variant="outlined"
-    //             value={inpCategory}
-    //             onChange={(e) => setInpCategory(e.target.value)}
-    //             name="category"
-    //             className="inp2 m-1"
-    //           />
-    //         </div>
-    //         <div>
-    //           <TextField
-    //             sx={{ width: "400px" }}
-    //             id="outlined-basic"
-    //             label="Description"
-    //             variant="outlined"
-    //             value={inpPrice}
-    //             onChange={(e) => setInpPrice(e.target.value)}
-    //             name="description"
-    //             className="inp3 m-1"
-    //           />
-    //         </div>
-    //         <div>
-    //           <TextField
-    //             sx={{ width: "400px" }}
-    //             id="outlined-basic"
-    //             type="number"
-    //             label="Price"
-    //             variant="outlined"
-    //             value={inpDescription}
-    //             onChange={(e) => setInpDescription(e.target.value)}
-    //             name="price"
-    //             className="inp4 m-1"
-    //           />
-    //         </div>
-    //         <div>
-    //           <TextField
-    //             sx={{ width: "400px" }}
-    //             id="outlined-basic"
-    //             label="Image url"
-    //             variant="outlined"
-    //             // value={image}
-    //             onChange={(e) => setSelectedFile(e.target.files[0])}
-    //             name="image"
-    //             className="inp5 m-1"
-    //           />
-    //         </div>
-    //         <div>
-    //           <Button
-    //             onClick={editItems}
-    //             sx={{
-    //               backgroundColor: "rgba(196, 159, 72, 0.791)",
-    //             }}
-    //             type="button"
-    //             variant="contained"
-    //             className="btnSave"
-    //           >
-    //             Добавить
-    //           </Button>
-    //           <ToastContainer
-    //             position="top-center"
-    //             autoClose={5000}
-    //             hideProgressBar={false}
-    //             newestOnTop={false}
-    //             closeOnClick
-    //             rtl={false}
-    //             pauseOnFocusLoss
-    //             draggable
-    //             pauseOnHover
-    //           />
-    //         </div>
-    //       </div>
-    //     </form>
-    //   ) : null}
-    // </>
+    // <h1>Hello</h1>
+    <>
+      {inpName ? (
+        <form className="inp" onSubmit={(e) => editItems(e)}>
+          <div className="inputs">
+            <div>
+              <TextField
+                sx={{ width: "400px", borderRadius: "5px" }}
+                id="outlined-basic"
+                label="Name"
+                variant="outlined"
+                value={inpName}
+                onChange={(e) => setInpName(e.target.value)}
+                type="text"
+                name="name"
+                className="inp1 m-1"
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: "400px" }}
+                id="outlined-basic"
+                label="Category"
+                variant="outlined"
+                value={inpCategory}
+                onChange={(e) => setInpCategory(e.target.value)}
+                name="category"
+                className="inp2 m-1"
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: "400px" }}
+                id="outlined-basic"
+                label="Description"
+                variant="outlined"
+                value={inpPrice}
+                onChange={(e) => setInpPrice(e.target.value)}
+                name="description"
+                className="inp3 m-1"
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: "400px" }}
+                id="outlined-basic"
+                type="number"
+                label="Price"
+                variant="outlined"
+                value={inpDescription}
+                onChange={(e) => setInpDescription(e.target.value)}
+                name="price"
+                className="inp4 m-1"
+              />
+            </div>
+            <div>
+              <TextField
+                sx={{ width: "400px" }}
+                id="outlined-basic"
+                label="Image url"
+                variant="outlined"
+                // value={image}
+                onChange={(e) => setSelectedFile(e.target.files[0])}
+                name="image"
+                className="inp5 m-1"
+              />
+            </div>
+            <div>
+              <Button
+                onClick={editItems}
+                sx={{
+                  backgroundColor: "rgba(196, 159, 72, 0.791)",
+                }}
+                type="button"
+                variant="contained"
+                className="btnSave"
+              >
+                Добавить
+              </Button>
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+            </div>
+          </div>
+        </form>
+      ) : null}
+    </>
   );
 };
 
