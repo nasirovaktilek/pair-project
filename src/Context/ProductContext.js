@@ -1,13 +1,9 @@
-import { ActionTypes } from "@mui/base";
 import axios from "axios";
 import React, { createContext, useReducer, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
-// import { API } from "../Config";
+import { useLocation, useNavigate } from "react-router-dom";
 export const productContext = createContext();
 
 let URL = "https://unitedstates3.herokuapp.com/api/v1";
-
-// const API = "http://localhost:8000/products";
 
 const INIT_STATE = {
   products: [],

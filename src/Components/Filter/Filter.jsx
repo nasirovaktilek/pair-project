@@ -4,8 +4,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
-import React from "react";
 import { Box } from "@mui/material";
+import { productContext } from "../../Context/ProductContext";
 
 const Filter = () => {
   const [type, setType] = useState("");
